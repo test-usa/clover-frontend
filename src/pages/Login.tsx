@@ -2,13 +2,11 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-// ✅ Define the validation schema using Zod
 const loginSchema = z.object({
   email: z.string().email("Invalid email format"),
   password: z.string().min(6, "Password must be at least 6 characters"),
 });
 
-// ✅ Define TypeScript type from Zod schema
 type LoginFormInputs = z.infer<typeof loginSchema>;
 
 const Login = () => {
@@ -17,7 +15,7 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<LoginFormInputs>({
-    resolver: zodResolver(loginSchema), // ✅ Apply Zod validation
+    resolver: zodResolver(loginSchema),
   });
 
   const onSubmit = (data: LoginFormInputs) => {

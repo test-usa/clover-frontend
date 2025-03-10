@@ -4,39 +4,36 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CiSquarePlus } from "react-icons/ci";
 
-// ✅ Define the validation schema using Zod
 const signupSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Invalid email format"),
   password: z.string().min(6, "Password must be at least 6 characters"),
-  image: z.any().refine((file) => file, "Image is required"), // ✅ Fixed image validation
+  image: z.any().refine((file) => file, "Image is required"),
 });
 
-// ✅ Define TypeScript type from Zod schema
 type SignupFormInputs = z.infer<typeof signupSchema>;
 
 const Signup = () => {
   const [preview, setPreview] = useState<string | null>(null);
-  const [selectedFile, setSelectedFile] = useState<File | null>(null); // ✅ Store selected file
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   const {
     register,
     handleSubmit,
-    setValue, // ✅ Set image manually
+    setValue,
     formState: { errors },
   } = useForm<SignupFormInputs>({
     resolver: zodResolver(signupSchema),
   });
 
   const onSubmit = (data: SignupFormInputs) => {
-    // ✅ Add image file to form data
     const formData = new FormData();
     formData.append("name", data.name);
     formData.append("email", data.email);
     formData.append("password", data.password);
     if (selectedFile) formData.append("image", selectedFile);
 
-    console.log("Signup Data:", Object.fromEntries(formData)); // ✅ Log data
+    console.log("Signup Data:", Object.fromEntries(formData));
   };
 
   // ✅ Handle image selection
@@ -45,7 +42,7 @@ const Signup = () => {
     if (file) {
       setPreview(URL.createObjectURL(file));
       setSelectedFile(file);
-      setValue("image", file, { shouldValidate: true }); // ✅ Update form state
+      setValue("image", file, { shouldValidate: true });
     }
   };
 
@@ -98,12 +95,11 @@ const Signup = () => {
               <p className="text-red-500 text-sm">{errors.password.message}</p>
             )}
           </div>
-
-          {/* Modern Image Upload Box */}
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700">
               Profile Picture
             </label>
+            {/* input box  */}
             <div
               className="relative w-full h-36 border-2 border-dashed border-gray-400 rounded-lg flex items-center justify-center cursor-pointer hover:border-blue-500 transition"
               onClick={() => document.getElementById("fileInput")?.click()}
@@ -135,8 +131,6 @@ const Signup = () => {
                 </p>
               )}
           </div>
-
-          {/* Submit Button */}
           <button
             type="submit"
             className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600"
