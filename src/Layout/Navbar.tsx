@@ -15,7 +15,7 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="bg-[#124e66] shadow-lg">
+    <nav className="bg-website-color-green shadow-lg">
       <div className=" mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -29,25 +29,25 @@ const Navbar: React.FC = () => {
           <div className="hidden md:flex space-x-4">
             <Link
               to="/"
-              className="text-white hover:bg-[#d3d9d4] hover:text-black px-3 py-2 rounded-md text-sm font-medium"
+              className="text-white hover:bg-website-color-lightGray hover:text-black px-3 py-2 rounded-md text-sm font-medium"
             >
               Home
             </Link>
             <Link
               to="/about"
-              className="text-white hover:bg-[#d3d9d4] hover:text-black px-3 py-2 rounded-md text-sm font-medium"
+              className="text-white hover:bg-website-color-lightGray hover:text-black px-3 py-2 rounded-md text-sm font-medium"
             >
               About
             </Link>
             <Link
               to="/services"
-              className="text-white hover:bg-[#d3d9d4] hover:text-black px-3 py-2 rounded-md text-sm font-medium"
+              className="text-white hover:bg-website-color-lightGray hover:text-black px-3 py-2 rounded-md text-sm font-medium"
             >
               Services
             </Link>
             <Link
               to="/contact"
-              className="text-white hover:bg-[#d3d9d4] hover:text-black px-3 py-2 rounded-md text-sm font-medium"
+              className="text-white hover:bg-website-color-lightGray hover:text-black px-3 py-2 rounded-md text-sm font-medium"
             >
               Contact
             </Link>
@@ -56,7 +56,7 @@ const Navbar: React.FC = () => {
               <PopoverTrigger>
                 <UserAvatar userName="Mahim" />
               </PopoverTrigger>
-              <PopoverContent className="mr-3">
+              <PopoverContent className="mr-3 bg-website-color-darkGray border-none text-white">
                 Place content for the popover here.
               </PopoverContent>
             </Popover>

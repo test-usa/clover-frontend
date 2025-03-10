@@ -4,6 +4,10 @@ import About from "../pages/About";
 import Contact from "../pages/Contact";
 import NotFound from "../pages/NotFound";
 import Home from "../pages/Home";
+import AdminRoute from "./AdminRoutes";
+import AdminDashboard from "@/pages/Admin/AdminDashboard";
+import Login from "@/pages/Login";
+import Signup from "@/pages/Signup";
 
 const routes = createBrowserRouter([
   {
@@ -21,6 +25,21 @@ const routes = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/signup",
+        element: <Signup />,
+      },
+      {
+        path: "/admin",
+        element: <AdminRoute />, // This will check if the user is an admin
+        children: [
+          { path: "", element: <AdminDashboard /> }, // Admin Dashboard
+        ],
       },
     ],
   },
