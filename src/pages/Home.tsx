@@ -3,7 +3,7 @@ import CommonWrapper from "../common/CommonWrapper";
 const Home = () => {
   return (
     <CommonWrapper>
-      <div className="h-screen">Home</div>
+      <div className="h-screen ">Home</div>
     </CommonWrapper>
   );
 };
