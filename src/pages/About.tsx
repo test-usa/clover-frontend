@@ -2,8 +2,8 @@ import { Button } from "@/components/ui/button";
 
 const About = () => {
   return (
-    <div>
-      <Button>Hello There</Button>
+    <div className="h-screen">
+      <Button>About Us Page</Button>
     </div>
   );
 };

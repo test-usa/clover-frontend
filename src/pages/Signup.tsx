@@ -3,12 +3,16 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CiSquarePlus } from "react-icons/ci";
+import { useNavigate } from "react-router-dom";
 
 const signupSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Invalid email format"),
   password: z.string().min(6, "Password must be at least 6 characters"),
-  image: z.any().refine((file) => file, "Image is required"),
+  image: z
+    .any()
+    .refine((file) => file, "Image is required")
+    .optional(),
 });
 
 type SignupFormInputs = z.infer<typeof signupSchema>;
@@ -26,6 +30,8 @@ const Signup = () => {
     resolver: zodResolver(signupSchema),
   });
 
+  const navigate = useNavigate();
+
   const onSubmit = (data: SignupFormInputs) => {
     const formData = new FormData();
     formData.append("name", data.name);
@@ -34,9 +40,9 @@ const Signup = () => {
     if (selectedFile) formData.append("image", selectedFile);
 
     console.log("Signup Data:", Object.fromEntries(formData));
+    navigate("/login");
   };
 
-  // ✅ Handle image selection
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {

@@ -1,16 +1,15 @@
-import { useDispatch, useSelector } from "react-redux";
 import CommonWrapper from "../common/CommonWrapper";
-import type { RootState, AppDispatch } from "../store/store";
 import {
   decrement,
   increment,
   reset,
   setCount,
 } from "@/store/Slices/counterSlice/counterSlice";
+import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
 
 const Home = () => {
-  const count = useSelector((state: RootState) => state.counter.value);
-  const dispatch: AppDispatch = useDispatch();
+  const count = useAppSelector((state) => state.counter.value);
+  const dispatch = useAppDispatch();
 
   return (
     <CommonWrapper>

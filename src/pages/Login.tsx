@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useNavigate } from "react-router-dom";
 
 const loginSchema = z.object({
   email: z.string().email("Invalid email format"),
@@ -18,8 +19,11 @@ const Login = () => {
     resolver: zodResolver(loginSchema),
   });
 
+  const navigate = useNavigate();
+
   const onSubmit = (data: LoginFormInputs) => {
     console.log("Login Data:", data);
+    navigate("/");
   };
 
   return (

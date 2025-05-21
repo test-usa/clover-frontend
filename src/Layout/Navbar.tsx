@@ -6,12 +6,21 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { Button } from "@/components/ui/button";
+import { useAppDispatch } from "@/hooks/useRedux";
+import { logout } from "@/store/Slices/AuthSlice/authSlice";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const dispatch = useAppDispatch();
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const handleLogout = () => {
+    dispatch(logout());
   };
 
   return (
@@ -57,7 +66,12 @@ const Navbar: React.FC = () => {
                 <UserAvatar userName="Mahim" />
               </PopoverTrigger>
               <PopoverContent className="mr-3 bg-website-color-darkGray border-none text-white">
-                Place content for the popover here.
+                <Button
+                  onClick={handleLogout}
+                  className="bg-website-color-lightGray text-black w-full"
+                >
+                  Logout
+                </Button>
               </PopoverContent>
             </Popover>
           </div>
