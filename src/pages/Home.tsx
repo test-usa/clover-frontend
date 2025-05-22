@@ -36,12 +36,6 @@ const Home = () => {
             >
               Reset
             </button>
-            <button
-              className="bg-green-500 text-white px-4 py-2 rounded"
-              onClick={() => dispatch(setCount(10))}
-            >
-              Set to 10
-            </button>
           </div>
         </div>
       </div>
