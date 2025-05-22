@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const loginSchema = z.object({
   email: z.string().email("Invalid email format"),
@@ -59,6 +59,15 @@ const Login = () => {
             {errors.password && (
               <p className="text-red-500 text-sm">{errors.password.message}</p>
             )}
+          </div>
+
+          <div className="mb-3">
+            <p>
+              Already have an account?{" "}
+              <Link to="/signup" className="text-blue-400 ">
+                Sign up here
+              </Link>
+            </p>
           </div>
 
           {/* Submit Button */}
