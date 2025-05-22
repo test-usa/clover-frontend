@@ -3,7 +3,6 @@ import {
   decrement,
   increment,
   reset,
-  setCount,
 } from "@/store/Slices/counterSlice/counterSlice";
 import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
 
