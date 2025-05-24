@@ -83,47 +83,48 @@ const routes = createBrowserRouter([
         element: <DashboardHome />,
         children: [
           {
-            path: "/",
+            path: "", // This becomes "/dashboard"
             element: <DashboardHome />,
           },
           {
-            path: "/swaps",
+            path: "swaps", // This becomes "/dashboard/swaps"
             element: <Swaps />,
           },
           {
-            path: "/chat",
+            path: "chat",
             element: <Chat />,
           },
           {
-            path: "/profile",
+            path: "profile",
             element: <Profile />,
           },
           {
-            path: "/initiate-proposal",
+            path: "initiate-proposal",
             element: <InitiateProposal />,
           },
           {
-            path: "/confirm-sending-proposal",
+            path: "confirm-sending-proposal",
             element: <ConfirmSendingProposal />,
           },
           {
-            path: "/review-proposal",
+            path: "review-proposal",
             element: <ReviewProposal />,
           },
           {
-            path: "/confirm-accepting-proposal",
+            path: "confirm-accepting-proposal",
             element: <ConfirmAcceptingProposal />,
           },
           {
-            path: "/swap-active-detail",
+            path: "swap-active-detail",
             element: <SwapActiveDetail />,
           },
           {
-            path: "/dispute-overlay",
+            path: "dispute-overlay",
             element: <DisputeOverlay />,
           },
         ],
       },
+
       {
         path: "/admin",
         element: <AdminRoute />, // This will check if the user is an admin
