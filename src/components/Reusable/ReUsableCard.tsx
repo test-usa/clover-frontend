@@ -1,6 +1,6 @@
-import { FaEnvelope } from "react-icons/fa";
-import { Link } from "react-router-dom";
 
+import { Link } from "react-router-dom";
+import messageIcon from '../../assets/messageIcon.svg'
 interface MatchCardProps {
     avatarSrc: string;
     name: string;
@@ -22,14 +22,15 @@ const ReUsableCard: React.FC<MatchCardProps> = ({
     status,
     offerSkill,
     exchangeSkill,
-    verifiedType = 'none',
+    verifiedType,
 
 }) => {
+
     const verifiedColor =
         verifiedType === 'blue'
             ? 'text-blue-500'
             : verifiedType === 'orange'
-                ? 'text-orange-500'
+                ? 'text-[#F38744]'
                 : 'hidden';
 
     return (
@@ -74,7 +75,7 @@ const ReUsableCard: React.FC<MatchCardProps> = ({
                         {location}
                     </p>
                     <div className="absolute -bottom-4 -left-18 flex bg-[#FDEAD7] rounded-[100px] p-[2px] w-[56px] items-center text-xs text-gray-600 mt-1">
-                        <span className="text-yellow-500 mr-1">★</span>
+                        <span className="text-[#EF6820] mr-1">★</span>
                         {rating}(5)
                     </div>
                 </div>
@@ -106,22 +107,24 @@ const ReUsableCard: React.FC<MatchCardProps> = ({
 
             {/* Actions Section */}
             <div className="flex justify-between space-x-3">
-                <button
+                <div>
+                    <button
 
-                    className="flex-1 px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                >
-                    <Link to={""}>View Profile</Link>
-                </button>
+                        className="flex-1 px-4 py-2 border border-blue-300 rounded-md text-gray-700 hover:bg-blue-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                    >
+                        <Link to={""}>View Profile</Link>
+                    </button>
+                </div>
                 <div className="flex gap-2">
                     <button
 
-                        className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                        className="cursor-pointer px-4 py-2 bg-white text-white rounded-md hover:bg-blue-700 hover:text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                     >
-                        <FaEnvelope />
+                        <img src={messageIcon} alt="" />
                     </button>
                     <button
 
-                        className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                        className="px-[24px] py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                     >
                         <Link to={""}>Swap</Link>
                     </button>
