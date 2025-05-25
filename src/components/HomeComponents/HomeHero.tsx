@@ -9,7 +9,7 @@ const HomeHero: React.FC = () => {
       {/* Top H1 */}
       <div className="mb-10 text-center md:text-left">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-900 leading-tight">
-          The Skill Swap Marketplace.
+          The Skill Swap Marketplace!!!.
         </h1>
       </div>
 
