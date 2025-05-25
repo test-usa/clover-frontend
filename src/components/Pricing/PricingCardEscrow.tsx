@@ -1,6 +1,6 @@
 const PricingCardEscrow = () => {
   return (
-    <div className="max-w-sm w-full rounded-xl shadow-lg overflow-hidden p-8 text-center flex flex-col justify-between h-[457px] bg-[#A0B6EA]">
+    <div className="max-w-sm w-full rounded-xl shadow-lg overflow-hidden p-8 text-center flex flex-col justify-between h-[457px] bg-[#F9F5FF]">
       <div className="upper">
         <h1 className="text-[36px] font-bold text-gray-800 mb-6">Our Simple Pricing</h1>
         <p className="text-gray-600 mb-8 text-[16px] font-medium">A small fee per successful swap.</p>
