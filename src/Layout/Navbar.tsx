@@ -17,7 +17,7 @@ const Navbar: React.FC = () => {
     setIsOpen(!isOpen);
   };
 
-  
+
 
   return (
     <nav className="bg-white shadow-lg p-3 relative z-50">
@@ -36,9 +36,8 @@ const Navbar: React.FC = () => {
 
           {/* Searchbar (hidden on sm and md when menu is open) */}
           <div
-            className={`relative w-96 lg:block ${
-              isOpen ? "hidden" : "hidden md:block"
-            }`}
+            className={`relative w-96 lg:block ${isOpen ? "hidden" : "hidden md:block"
+              }`}
           >
             <input
               type="text"
@@ -53,9 +52,8 @@ const Navbar: React.FC = () => {
 
           {/* Desktop Menu (hidden on sm and md when menu is open) */}
           <div
-            className={`hidden lg:flex space-x-4 items-center ${
-              isOpen ? "hidden" : ""
-            }`}
+            className={`hidden lg:flex space-x-4 items-center ${isOpen ? "hidden" : ""
+              }`}
           >
             <Link
               to="/how-it-works"
@@ -142,7 +140,7 @@ const Navbar: React.FC = () => {
 
           {/* Navigation Links */}
           <div className="flex flex-col space-y-3 max-w-xl mx-auto">
-            
+
             <Link
               to="/how-it-works"
               className="block text-black hover:bg-gray-200 px-3 py-2 rounded-md text-base font-medium"
@@ -181,7 +179,7 @@ const Navbar: React.FC = () => {
             <Button
               onClick={() => {
                 setIsOpen(false);
-                navigate("/register");
+                navigate("/signup");
               }}
               className="bg-primary-500 text-white hover:bg-primary-800 w-full"
             >
