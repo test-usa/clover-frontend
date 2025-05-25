@@ -26,7 +26,7 @@ const DashboardHome = () => {
     <>
       <div>
         <h1 className="w-[700] text-[48px]">Hi Dwiky!</h1>
-        <p className="mb-8">Ready to swap skills?</p>
+        <p className="mb-7">Ready to swap skills?</p>
       </div>
       <div>
         <Summary />
