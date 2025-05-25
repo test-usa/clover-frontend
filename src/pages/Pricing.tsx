@@ -1,7 +1,6 @@
 import PricingCardEscrow from "@/components/Pricing/PricingCardEscrow";
 import PricingCardMonth from "@/components/Pricing/PricingCardMonth";
-import AuthButton from "@/components/Reusable/AuthButton";
-import ReUsableCard from "@/components/Reusable/ReUsableCard";
+
 
 const Pricing = () => {
   return (
