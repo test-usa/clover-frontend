@@ -79,56 +79,7 @@ const routes = createBrowserRouter([
         path: "/back-to-login",
         element: <BackToLogin />,
       },
-      {
-        path: "/dashboard",
-        element: <DashboardLayout />,
-        children: [
-          {
-            path: "", // This becomes "/dashboard"
-            element: <DashboardHome />,
-          },
-          {
-            path: "info", // This becomes "/dashboard/info"
-            element: <DashboardHome />,
-          },
-          {
-            path: "swaps", // This becomes "/dashboard/swaps"
-            element: <Swaps />,
-          },
-          {
-            path: "chat",
-            element: <Chat />,
-          },
-          {
-            path: "profile",
-            element: <Profile />,
-          },
-          {
-            path: "initiate-proposal",
-            element: <InitiateProposal />,
-          },
-          {
-            path: "confirm-sending-proposal",
-            element: <ConfirmSendingProposal />,
-          },
-          {
-            path: "review-proposal",
-            element: <ReviewProposal />,
-          },
-          {
-            path: "confirm-accepting-proposal",
-            element: <ConfirmAcceptingProposal />,
-          },
-          {
-            path: "swap-active-detail",
-            element: <SwapActiveDetail />,
-          },
-          {
-            path: "dispute-overlay",
-            element: <DisputeOverlay />,
-          },
-        ],
-      },
+
 
       {
         path: "/admin",
@@ -136,6 +87,56 @@ const routes = createBrowserRouter([
         children: [
           { path: "", element: <AdminDashboard /> }, // Admin Dashboard
         ],
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <DashboardLayout />,
+    children: [
+      {
+        path: "", // This becomes "/dashboard"
+        element: <DashboardHome />,
+      },
+      {
+        path: "info", // This becomes "/dashboard/info"
+        element: <DashboardHome />,
+      },
+      {
+        path: "swaps", // This becomes "/dashboard/swaps"
+        element: <Swaps />,
+      },
+      {
+        path: "chat",
+        element: <Chat />,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
+      },
+      {
+        path: "initiate-proposal",
+        element: <InitiateProposal />,
+      },
+      {
+        path: "confirm-sending-proposal",
+        element: <ConfirmSendingProposal />,
+      },
+      {
+        path: "review-proposal",
+        element: <ReviewProposal />,
+      },
+      {
+        path: "confirm-accepting-proposal",
+        element: <ConfirmAcceptingProposal />,
+      },
+      {
+        path: "swap-active-detail",
+        element: <SwapActiveDetail />,
+      },
+      {
+        path: "dispute-overlay",
+        element: <DisputeOverlay />,
       },
     ],
   },
