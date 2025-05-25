@@ -27,7 +27,7 @@ const PricingCardMonth = () => {
         </div>
 
         <button className="bg-warning-500 hover:bg-yellow-600 text-white font-bold py-3 px-20 rounded-md transition duration-200">
-          Upgrade Now
+          Upgrade Now New
         </button>
       </div>
     </div>
