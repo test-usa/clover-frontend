@@ -24,6 +24,9 @@ import ConfirmAcceptingProposal from "@/pages/Dashboard/ConfirmAcceptingProposal
 import SwapActiveDetail from "@/pages/Dashboard/SwapActiveDetail";
 import DisputeOverlay from "@/pages/Dashboard/DisputeOverlay";
 import DashboardLayout from "@/pages/Dashboard/DashboardLayout";
+import Browse from "@/pages/Dashboard/Browse";
+import OnBoard from "@/pages/auth/OnBoard";
+import OnBoardSuccess from "@/pages/auth/OnBoardSuccess";
 
 const routes = createBrowserRouter([
   {
@@ -53,6 +56,10 @@ const routes = createBrowserRouter([
     ],
   },
   {
+    path: "/profile",
+    element: <Profile />,
+  },
+  {
     path: "/login",
     element: <Login />,
   },
@@ -76,6 +83,14 @@ const routes = createBrowserRouter([
     path: "/back-to-login",
     element: <BackToLogin />,
   },
+  {
+    path: "/on-board",
+    element: <OnBoard />,
+  },
+  {
+    path: "/on-board-success",
+    element: <OnBoardSuccess />,
+  },
 
   {
     path: "/dashboard",
@@ -94,12 +109,12 @@ const routes = createBrowserRouter([
         element: <Swaps />,
       },
       {
-        path: "chat",
-        element: <Chat />,
+        path: "browse",
+        element: <Browse />,
       },
       {
-        path: "profile",
-        element: <Profile />,
+        path: "chat",
+        element: <Chat />,
       },
       {
         path: "initiate-proposal",
