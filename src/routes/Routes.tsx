@@ -30,6 +30,10 @@ import OnBoardSuccess from "@/pages/auth/OnBoardSuccess";
 import PublicMyProfile from "@/pages/Dashboard/PublicMyProfile";
 import PrivateMyProfile from "@/pages/Dashboard/PrivateMyProfile";
 import Setting from "@/pages/Dashboard/Setting";
+import DisputeCreate from "@/pages/dispute/DisputeCreate";
+import DisputeCreateSuccess from "@/pages/dispute/DisputeCreateSuccess";
+import DisputeResponse from "@/pages/dispute/DisputeResponse";
+import DisputeResponseSuccess from "@/pages/dispute/DisputeResponseSuccess";
 
 const routes = createBrowserRouter([
   {
@@ -93,6 +97,22 @@ const routes = createBrowserRouter([
   {
     path: "/on-board-success",
     element: <OnBoardSuccess />,
+  },
+  {
+    path: "/dispute-create",
+    element: <DisputeCreate />,
+  },
+  {
+    path: "/dispute-create/success",
+    element: <DisputeCreateSuccess />,
+  },
+  {
+    path: "/dispute-response",
+    element: <DisputeResponse />,
+  },
+  {
+    path: "/dispute-response/success",
+    element: <DisputeResponseSuccess />,
   },
 
   {
