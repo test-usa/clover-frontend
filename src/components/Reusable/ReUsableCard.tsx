@@ -200,9 +200,15 @@ const ReUsableCard: React.FC<MatchCardProps> = ({
 
                         className={`px-3 py-1 rounded-full text-xs font-semibold ${status === "Available"
 
+<<<<<<< HEAD
                             ? "bg-green-100 text-green-700"
 
                             : "bg-red-100 text-red-700"
+=======
+                                ? "bg-green-100 text-green-700"
+
+                                : "bg-red-100 text-red-700"
+>>>>>>> feature/reusableComponent
 
                             }`}
 
