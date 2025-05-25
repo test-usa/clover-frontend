@@ -24,6 +24,7 @@ import ReviewProposal from "@/pages/Dashboard/ReviewProposal";
 import ConfirmAcceptingProposal from "@/pages/Dashboard/ConfirmAcceptingProposal";
 import SwapActiveDetail from "@/pages/Dashboard/SwapActiveDetail";
 import DisputeOverlay from "@/pages/Dashboard/DisputeOverlay";
+import DashboardLayout from "@/pages/Dashboard/DashboardLayout";
 
 const routes = createBrowserRouter([
   {
@@ -80,10 +81,14 @@ const routes = createBrowserRouter([
       },
       {
         path: "/dashboard",
-        element: <DashboardHome />,
+        element: <DashboardLayout />,
         children: [
           {
             path: "", // This becomes "/dashboard"
+            element: <DashboardHome />,
+          },
+          {
+            path: "info", // This becomes "/dashboard/info"
             element: <DashboardHome />,
           },
           {
