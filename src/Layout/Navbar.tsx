@@ -1,14 +1,10 @@
-import UserAvatar from "@/ui/UserAvatar";
+
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+
 import { Button } from "@/components/ui/button";
-import { useAppDispatch } from "@/hooks/useRedux";
-import { logout } from "@/store/Slices/AuthSlice/authSlice";
+
+
 import logo from "../assets/logo.svg";
 import { FiSearch } from "react-icons/fi";
 
@@ -16,16 +12,12 @@ const Navbar: React.FC = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
-  const dispatch = useAppDispatch();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleLogout = () => {
-    dispatch(logout());
-    navigate("/login");
-  };
+  
 
   return (
     <nav className="bg-white shadow-lg p-3 relative z-50">
