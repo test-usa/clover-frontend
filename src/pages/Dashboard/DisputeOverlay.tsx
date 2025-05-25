@@ -2,12 +2,7 @@ const DisputeOverlay = () => {
   return <div>
     
     
-   <form>
-      <div className="">
-        
-      </div>
-
-   </form>
+   <h1>DisputeOverlay</h1>
     
     </div>;
 };

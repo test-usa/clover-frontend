@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
               Terms of Service
             </Link>
             <Link to="/privacy-policy" className="underline">
-              Privacy Policy
+              Privacy Policy!
             </Link>
           </div>
         </div>
