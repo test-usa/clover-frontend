@@ -1,4 +1,4 @@
-import Summary from "@/components/DashboaredHome.tsx/Summary";
+import Summary from "@/components/DashboaredHome/Summary";
 
 const DashboardHome = () => {
   return (
