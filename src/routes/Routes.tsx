@@ -27,6 +27,9 @@ import DashboardLayout from "@/pages/Dashboard/DashboardLayout";
 import Browse from "@/pages/Dashboard/Browse";
 import OnBoard from "@/pages/auth/OnBoard";
 import OnBoardSuccess from "@/pages/auth/OnBoardSuccess";
+import PublicMyProfile from "@/pages/Dashboard/PublicMyProfile";
+import PrivateMyProfile from "@/pages/Dashboard/PrivateMyProfile";
+import Setting from "@/pages/Dashboard/Setting";
 
 const routes = createBrowserRouter([
   {
@@ -139,6 +142,18 @@ const routes = createBrowserRouter([
       {
         path: "dispute-overlay",
         element: <DisputeOverlay />,
+      },
+      {
+        path: "profile/:id/public",
+        element: <PublicMyProfile />,
+      },
+      {
+        path: "profile/:id/private",
+        element: <PrivateMyProfile />,
+      },
+      {
+        path: "setting",
+        element: <Setting />,
       },
     ],
   },
