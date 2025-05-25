@@ -1,6 +1,7 @@
 import PricingCardEscrow from "@/components/Pricing/PricingCardEscrow";
 import PricingCardMonth from "@/components/Pricing/PricingCardMonth";
 
+
 const Pricing = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -40,6 +41,10 @@ const Pricing = () => {
           </div>
         </div>
       </div>
+
+
+
+
     </div>
   );
 };

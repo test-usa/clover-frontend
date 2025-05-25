@@ -53,19 +53,7 @@ const HowItWorks = () => {
             );
           })}
 
-          <div>
-            <h2 className="sm:text-xl md:text-2xl font-semibold mb-2">
-              Confirm & Review
-            </h2>
-            <p className="text-base text-gray-700">
-              Once both parties are satisfied that the services are completed{" "}
-              <br /> according to the agreement, they confirm completion on the
-              platform. <br /> You can then leave a review and rating for the
-              other user based on your <br />
-              experience. A small swap fee is processed upon successful
-              completion.
-            </p>
-          </div>
+         
         </div>
       </div>
       <div className="w-full max-w-md bg-[#F3F4F6] my-14 py-6 px-6 sm:py-8 sm:px-10 mx-auto rounded-md">
