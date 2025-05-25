@@ -1,5 +1,15 @@
 const DisputeOverlay = () => {
-  return <div>DisputeOverlay</div>;
+  return <div>
+    
+    
+   <form>
+      <div className="">
+        
+      </div>
+
+   </form>
+    
+    </div>;
 };
 
 export default DisputeOverlay;
