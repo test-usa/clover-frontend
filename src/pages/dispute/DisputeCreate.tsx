@@ -17,13 +17,15 @@ const DisputeCreate = () => {
   });
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) {
-      setFormData((prev) => ({
-        ...prev,
-        files: [...prev.files, ...Array.from(e.target.files)],
-      }));
-    }
-  };
+  const selectedFiles = e.target.files;
+  if (!selectedFiles) return; // Early return if null
+
+  setFormData((prev) => ({
+    ...prev,
+    files: [...prev.files, ...Array.from(selectedFiles)],
+  }));
+};
+
 
   const handleRemoveFile = (index: number) => {
     const updatedFiles = [...formData.files];
