@@ -7,7 +7,7 @@ const features = [
 
 const PricingCardMonth = () => {
   return (
-    <div className="max-w-sm w-full rounded-xl shadow-lg overflow-hidden p-8 text-center flex flex-col justify-between h-[457px]  bg-warning-200">
+    <div className="max-w-sm w-full rounded-xl shadow-lg overflow-hidden p-8 text-center flex flex-col justify-between h-[457px]  bg-[#FEF6EE]">
       <div className="upper">
         <h1 className="text-[36px] font-bold text-gray-800 mb-6">Premium Membership</h1>
         <ul className="text-left pl-4">
