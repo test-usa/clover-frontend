@@ -43,7 +43,7 @@ const DisputeResponse = () => {
         <button className="w-full sm:w-1/2 mx-auto border border-blue-400 py-2 rounded-md hover:bg-blue-50 transition">
           View Swap Details
         </button>
-        <button className="bg-blue-500 text-white w-full sm:w-1/2 mx-auto py-2 rounded-md hover:bg-blue-600 transition">
+        <button className="bg-blue-500 text-white w-full sm:w-1/2 mx-auto py-2 rounded-md hover:bg-blue-700 transition">
           Go to Dashboard
         </button>
       </div>
