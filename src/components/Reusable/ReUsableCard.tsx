@@ -256,11 +256,11 @@ const ReUsableCard: React.FC<MatchCardProps> = ({
 
             <div className="flex justify-between space-x-3">
 
-                <button className="flex-1 px-4 py-2 border border-blue-300 rounded-md text-gray-700 hover:bg-blue-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                <Link to={"/dashboard/profile/:id/public"} className="flex-1 px-4 flex items-center justify-center py-2 border border-blue-300 rounded-md text-gray-700 hover:bg-blue-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
 
-                    <Link to={""}>View Profile</Link>
+                    <h1>View Profile</h1>
 
-                </button>
+                </Link>
 
                 <div className="flex gap-2">
 
@@ -270,11 +270,11 @@ const ReUsableCard: React.FC<MatchCardProps> = ({
 
                     </button>
 
-                    <button className="px-[24px] py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                    <Link to={"/dashboard/initiate-proposal"} className="px-6 flex items-center justify-center py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
 
-                        <Link to={""}>Swap</Link>
+                        <h1>Swap</h1>
 
-                    </button>
+                    </Link>
 
                 </div>
 
