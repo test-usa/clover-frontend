@@ -194,7 +194,7 @@ const Signup = () => {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 hover:scale-105 transition"
+              className="w-full cursor-pointer bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 hover:scale-105 transition"
             >
               Register
             </button>
@@ -209,14 +209,14 @@ const Signup = () => {
 
           {/* Social Buttons */}
           <div className="space-y-4">
-            <button className="w-full bg-white border border-gray-300 text-[#254EDB] p-2 rounded-md hover:scale-105 transition">
+            <button className="w-full cursor-pointer bg-white border border-gray-300 text-[#254EDB] p-2 rounded-md hover:scale-105 transition">
               <div className="flex justify-center items-center gap-4">
                 <FcGoogle />
                 <p className="text-sm font-bold">Continue with Google</p>
               </div>
             </button>
 
-            <button className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 hover:scale-105 transition">
+            <button className="w-full  cursor-pointer bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 hover:scale-105 transition">
               <div className="flex justify-center items-center gap-4">
                 <FaFacebook />
                 <p className="text-sm font-bold">Continue with Facebook</p>

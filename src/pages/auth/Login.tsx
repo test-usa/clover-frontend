@@ -120,15 +120,9 @@ const Login = () => {
 
           {/* Footer Text */}
           <div className="my-4 text-center text-sm">
-            <span>Already have an account? <Link to="" className="text-blue-700 hover:underline">Sign in</Link></span>
+            <span>Don't have an account? <Link to="" className="text-blue-700 hover:underline">Register Now</Link></span>
           </div>
-          <div className="text-center text-xs text-gray-500">
-            <p>
-              By signing up or logging in, I accept the app’s{" "}
-              <Link to="" className="text-blue-700 hover:underline">Terms of Service</Link> and{" "}
-              <Link to="" className="text-blue-700 hover:underline">Privacy Policy</Link>
-            </p>
-          </div>
+
         </div>
       </div>
     </div>
