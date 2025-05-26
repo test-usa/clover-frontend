@@ -23,7 +23,7 @@ const activites: TActivites = [
 
 const DashboardHome = () => {
   return (
-    <>
+    <div className="p-4">
       <div>
         <h1 className="w-[700] text-[48px]">Hi Dwiky!</h1>
         <p className="mb-7">Ready to swap skills?</p>
@@ -47,7 +47,7 @@ const DashboardHome = () => {
           ))
         }
       </div>
-    </>
+    </div>
   );
 };
 
