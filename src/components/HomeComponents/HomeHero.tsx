@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 const HomeHero: React.FC = () => {
   return (
-    <section className="w-full py-16 px-4 md:px-8 lg:px-12">
+    <section className="w-full py-16 px-4 md:px-0 ">
       {/* Top H1 */}
       <div className="mb-10 text-center md:text-left">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-900 leading-tight">

@@ -72,7 +72,7 @@ const Home = () => {
       <div>
         <HomeHero />
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 py-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-4 md:px-0 gap-18 py-12">
         {dummyData.map((user, index) => (
           <ReUsableCard key={index} {...user} />
         ))}
