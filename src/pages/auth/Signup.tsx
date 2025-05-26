@@ -25,8 +25,8 @@ const signupSchema = z.object({
 type SignupFormInputs = z.infer<typeof signupSchema>;
 
 const Signup = () => {
-  const [preview, setPreview] = useState<string | null>(null);
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  // const [preview, setPreview] = useState<string | null>(null);
+  // const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isShow, setShow] = useState<boolean>(false)
   const [isShowConfirm, setShowConfirm] = useState<boolean>(false)
 
@@ -34,7 +34,7 @@ const Signup = () => {
   const {
     register,
     handleSubmit,
-    setValue,
+    // setValue,
     watch,
     formState: { errors },
   } = useForm<SignupFormInputs>({
@@ -49,20 +49,20 @@ const Signup = () => {
     formData.append("name", data.name);
     formData.append("email", data.email);
     formData.append("password", data.password);
-    if (selectedFile) formData.append("image", selectedFile);
+    // if (selectedFile) formData.append("image", selectedFile);
 
     console.log("Signup Data:", Object.fromEntries(formData));
     navigate("/login");
   };
 
-  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      setPreview(URL.createObjectURL(file));
-      setSelectedFile(file);
-      setValue("image", file, { shouldValidate: true });
-    }
-  };
+  // const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   const file = event.target.files?.[0];
+  //   if (file) {
+  //     setPreview(URL.createObjectURL(file));
+  //     setSelectedFile(file);
+  //     setValue("image", file, { shouldValidate: true });
+  //   }
+  // };
   type PasswordStrength = {
     label: "Weak" | "Medium" | "Strong";
     score: number;

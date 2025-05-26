@@ -6,7 +6,7 @@
 
 
 
-import CommonWrapper from '@/common/CommonWrapper';
+
 import React, { useState, useEffect, useCallback } from 'react';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css'; // Import the default styles for react-phone-input-2
@@ -83,7 +83,7 @@ const MultiStepForm: React.FC = () => {
     setCurrentStep((prev) => Math.max(prev - 1, 1));
   }, []);
 
-  const isLastStep = currentStep === totalSteps;
+  // const isLastStep = currentStep === totalSteps;
 
   // --- Form Data Handlers ---
 
@@ -96,7 +96,7 @@ const MultiStepForm: React.FC = () => {
   };
 
   // Handler for PhoneInput component
-  const handlePhoneChange = (phone: string, country: any) => {
+  const handlePhoneChange = (phone: string) => {
     setFormData((prev) => ({ ...prev, phoneNumber: phone }));
     // Clear phone number error
     setErrors((prev) => prev.filter(err => err.path[0] !== 'phoneNumber'));
@@ -342,13 +342,15 @@ const MultiStepForm: React.FC = () => {
             </div>
 
             {/* Short Bio */}
+            {/* Short Bio */}
             <div>
               <label htmlFor="shortBio" className="block text-sm font-medium text-gray-700 mb-1">
                 Short Bio
               </label>
               <textarea
                 id="shortBio"
-                value={formData.shortBio}
+                // Add || '' to ensure it's always a string for the value prop
+                value={formData.shortBio || ''}
                 onChange={handleChange}
                 placeholder="(e.g., &quot;Freelance graphic designer passionate about sustainable design solutions.&quot;)"
                 rows={4}
@@ -357,7 +359,8 @@ const MultiStepForm: React.FC = () => {
                 maxLength={400}
               ></textarea>
               <p className="mt-1 text-sm text-gray-500 text-right">
-                {400 - formData.shortBio.length} characters left
+                {/* Use optional chaining (?.) and provide a default of 0 if undefined */}
+                {400 - (formData.shortBio?.length || 0)} characters left
               </p>
               {getErrorForField('shortBio') && <p className="mt-1 text-sm text-red-500">{getErrorForField('shortBio')}</p>}
             </div>
