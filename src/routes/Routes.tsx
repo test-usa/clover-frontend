@@ -38,6 +38,7 @@ import IdentityVerification from "@/pages/Dashboard/IdentityVerification";
 import IdentityVerificationSuccess from "@/pages/Dashboard/IdentityVerificationSuccess";
 import SubscriptionUpgrade from "@/pages/Dashboard/SubscriptionUpgrade";
 import SubscriptionUpgradeSuccess from "@/pages/Dashboard/SubscriptionUpgradeSuccess";
+import Notifications from "@/pages/Dashboard/Notifications";
 
 const routes = createBrowserRouter([
   {
@@ -194,6 +195,10 @@ const routes = createBrowserRouter([
       {
         path: "subscription-upgrade/success",
         element: <SubscriptionUpgradeSuccess />,
+      },
+      {
+        path: "notifications",
+        element: <Notifications />,
       },
     ],
   },

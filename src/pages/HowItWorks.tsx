@@ -1,3 +1,4 @@
+import CommonWrapper from "@/common/CommonWrapper";
 import { generateRandomId } from "@/utils/utils";
 
 const infoArray = [
@@ -13,6 +14,10 @@ const infoArray = [
     description:
       "The other user reviews your proposal. They can accept, decline, or suggest modifications. Once both parties agree on the terms, the swap is initiated. For added security, consider using the Escrow service for valuable trades.",
   },
+ 
+];
+const infoArrays = [
+
   {
     id: generateRandomId(),
     title: "Perform the Service",
@@ -27,46 +32,67 @@ const infoArray = [
   },
 ];
 
+
+
 const HowItWorks = () => {
   return (
-    <div className="min-h-screen ">
-      <div className=" px-4 py-10 md:pl-[50px]">
-        <div className=" w-full md:w-[668px] space-y-5">
-          <div>
-            <h1 className="text-xl md:text-3xl font-semibold mb-2 leading-snug">
-              How SwapSpot Secures Your Swaps <br />
-              with Escrow
-            </h1>
-            <p className="text-base text-gray-600">
-              Connecting skills, creating value, one swap at a time.
-            </p>
-          </div>
+    <CommonWrapper>
+      <div className="min-h-screen flex flex-col items-center justify-center ">
+        <div className=" px-4 py-10 ">
+          <div className=" w-full md:max-w-7xl   space-y-5">
+            <div>
+              <h1 className="text-xl text-center md:text-3xl font-semibold mb-2 leading-snug">
+                How SwapSpot Secures Your Swaps <br />
+                with Escrow
+              </h1>
+              <p className="text-base text-gray-600 text-center">
+                Connecting skills, creating value, one swap at a time.
+              </p>
+            </div>
 
-          {infoArray.map((item) => {
-            return (
-              <div>
-                <h2 className="sm:text-xl md:text-2xl font-semibold mb-2">
-                  {item.title}
-                </h2>
-                <p className="text-base text-gray-700">{item.description}</p>
+            <div className=" grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="flex flex-col">
+                {infoArray.map((item) => {
+                return (
+                  <div>
+                    <h2 className="sm:text-xl md:text-2xl font-semibold mb-2">
+                      {item.title}
+                    </h2>
+                    <p className="text-base text-gray-700">{item.description}</p>
+                  </div>
+                );
+              })}
               </div>
-            );
-          })}
+              <div className="flex flex-col">
+                {infoArrays.map((item) => {
+                return (
+                  <div>
+                    <h2 className="sm:text-xl md:text-2xl font-semibold mb-2">
+                      {item.title}
+                    </h2>
+                    <p className="text-base text-gray-700">{item.description}</p>
+                  </div>
+                );
+              })}
+              </div>
+            </div>
 
-         
+
+          </div>
+        </div>
+        <div className="w-full max-w-md bg-[#F3F4F6] my-14 py-6 px-6 sm:py-8 sm:px-10 mx-auto rounded-md">
+          <div className="flex justify-center">
+            <h1 className="text-xl sm:text-2xl font-semibold text-center">
+              Ready to Start Swapping?
+            </h1>
+          </div>
+          <button className="mt-6 mx-auto block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded transition duration-300">
+            Join SwapSpot Today
+          </button>
         </div>
       </div>
-      <div className="w-full max-w-md bg-[#F3F4F6] my-14 py-6 px-6 sm:py-8 sm:px-10 mx-auto rounded-md">
-        <div className="flex justify-center">
-          <h1 className="text-xl sm:text-2xl font-semibold text-center">
-            Ready to Start Swapping?
-          </h1>
-        </div>
-        <button className="mt-6 mx-auto block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded transition duration-300">
-          Join SwapSpot Today
-        </button>
-      </div>
-    </div>
+    </CommonWrapper>
+
   );
 };
 
