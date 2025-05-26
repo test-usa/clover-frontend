@@ -65,7 +65,7 @@ const ReUsableCard: React.FC<MatchCardProps> = ({
 
     return (
 
-        <div className="bg-white rounded-lg p-4 shadow-sm border min-w-[350px] max-w-[400px] border-gray-200">
+        <div className="bg-white rounded-lg p-4 shadow-sm border min-w-[260px] max-w-[400px] border-gray-200">
 
             {/* User Info Section */}
 
@@ -85,7 +85,7 @@ const ReUsableCard: React.FC<MatchCardProps> = ({
 
                         alt={`${name}'s avatar`}
 
-                        className="w-12 h-12 rounded-full mr-3"
+                        className="w-12 h-12 rounded-full mr-3 object-cover"
 
                     />
 
@@ -200,9 +200,9 @@ const ReUsableCard: React.FC<MatchCardProps> = ({
 
                         className={`px-3 py-1 rounded-full text-xs font-semibold ${status === "Available"
 
-                                ? "bg-green-100 text-green-700"
+                            ? "bg-green-100 text-green-700"
 
-                                : "bg-red-100 text-red-700"
+                            : "bg-red-100 text-red-700"
 
                             }`}
 
@@ -256,25 +256,25 @@ const ReUsableCard: React.FC<MatchCardProps> = ({
 
             <div className="flex justify-between space-x-3">
 
-                <button className="flex-1 px-4 py-2 border border-blue-300 rounded-md text-gray-700 hover:bg-blue-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                <Link to={"/dashboard/profile/:id/public"} className="flex-1 px-4 flex items-center justify-center py-2 border border-blue-300 rounded-md text-gray-700 hover:bg-blue-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
 
-                    <Link to={""}>View Profile</Link>
+                    <h1>View Profile</h1>
 
-                </button>
+                </Link>
 
                 <div className="flex gap-2">
 
-                    <button className="cursor-pointer px-4 py-2 bg-white text-black rounded-md hover:bg-blue-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                    <button className="cursor-pointer px-4 py-2 bg-white text-black rounded-md hover:scale-105 transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
 
                         <img src={messageIcon} alt="Message icon" />
 
                     </button>
 
-                    <button className="px-[24px] py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                    <Link to={"/dashboard/initiate-proposal"} className="px-6 flex items-center justify-center py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
 
-                        <Link to={""}>Swap</Link>
+                        <h1>Swap</h1>
 
-                    </button>
+                    </Link>
 
                 </div>
 
