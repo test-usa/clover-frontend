@@ -48,7 +48,7 @@ function InitiateProposal() {
   return (
     <>
       <section className="border-b py-8">
-        <div>
+        <div className="px-4">
           {/* Header */}
           <div className="flex flex-row gap-2 items-center">
             <FaAngleLeft />

@@ -65,7 +65,7 @@ const ReUsableCard: React.FC<MatchCardProps> = ({
 
     return (
 
-        <div className="bg-white rounded-lg p-4 shadow-sm border min-w-[260px] max-w-[400px] border-gray-200">
+        <div className="bg-white rounded-lg p-4 shadow-sm border  max-w-xl border-gray-200">
 
             {/* User Info Section */}
 
