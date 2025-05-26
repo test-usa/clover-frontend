@@ -31,8 +31,8 @@ const HowItWorks = () => {
   return (
     <div className="min-h-screen ">
       <div className=" px-4 py-10 md:pl-[50px]">
-        <div className=" w-full md:w-[668px] space-y-5">
-          <div>
+        <div className=" w-full md:w-3/4 gap-10 mx-auto space-y-5">
+          <div className="text-center mb-10">
             <h1 className="text-xl md:text-3xl font-semibold mb-2 leading-snug">
               How SwapSpot Secures Your Swaps <br />
               with Escrow
@@ -41,19 +41,18 @@ const HowItWorks = () => {
               Connecting skills, creating value, one swap at a time.
             </p>
           </div>
-
-          {infoArray.map((item) => {
-            return (
-              <div>
-                <h2 className="sm:text-xl md:text-2xl font-semibold mb-2">
-                  {item.title}
-                </h2>
-                <p className="text-base text-gray-700">{item.description}</p>
-              </div>
-            );
-          })}
-
-         
+          <div className="grid grid-cols-2 gap-10" >
+            {infoArray.map((item) => {
+              return (
+                <div>
+                  <h2 className="sm:text-xl md:text-2xl font-semibold mb-2">
+                    {item.title}
+                  </h2>
+                  <p className="text-base text-gray-700">{item.description}</p>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
       <div className="w-full max-w-md bg-[#F3F4F6] my-14 py-6 px-6 sm:py-8 sm:px-10 mx-auto rounded-md">
