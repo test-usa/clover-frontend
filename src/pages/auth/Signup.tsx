@@ -196,7 +196,7 @@ const Signup = () => {
               type="submit"
               className="w-full cursor-pointer bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 hover:scale-105 transition"
             >
-              Register
+              <Link to={"/otp"}>Register</Link>
             </button>
 
             {/* OR Divider */}

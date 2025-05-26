@@ -85,7 +85,7 @@ const ReUsableCard: React.FC<MatchCardProps> = ({
 
                         alt={`${name}'s avatar`}
 
-                        className="w-12 h-12 rounded-full mr-3"
+                        className="w-12 h-12 rounded-full mr-3 object-cover"
 
                     />
 
