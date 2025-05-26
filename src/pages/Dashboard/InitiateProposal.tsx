@@ -50,7 +50,8 @@ function InitiateProposal() {
       <section className="border-b py-8">
         <div>
           {/* Header */}
-          <div className="flex flex-col">
+          <div className="flex flex-row gap-2 items-center">
+            <FaAngleLeft />
             <h1 className="text-2xl font-semibold text-gray-800">Propose a Swap</h1>
           </div>
 
