@@ -1,5 +1,6 @@
 import { useState, ChangeEvent, FormEvent } from 'react';
 import { PiUploadSimpleFill } from 'react-icons/pi';
+import { RxCross1 } from "react-icons/rx";
 
 interface DisputeFormData {
   swapTitle: string;
@@ -10,22 +11,20 @@ interface DisputeFormData {
 
 const DisputeCreate = () => {
   const [formData, setFormData] = useState<DisputeFormData>({
-    swapTitle: 'Branding & Identity for Web Development',
-    swappingWith: 'Neha Mayumi',
+    swapTitle: '',
+    swappingWith: '',
     statement: '',
     files: [],
   });
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-  const selectedFiles = e.target.files;
-  if (!selectedFiles) return; // Early return if null
-
-  setFormData((prev) => ({
-    ...prev,
-    files: [...prev.files, ...Array.from(selectedFiles)],
-  }));
-};
-
+    const selectedFiles = e.target.files;
+    if (!selectedFiles) return;
+    setFormData((prev) => ({
+      ...prev,
+      files: [...prev.files, ...Array.from(selectedFiles)],
+    }));
+  };
 
   const handleRemoveFile = (index: number) => {
     const updatedFiles = [...formData.files];
@@ -40,29 +39,31 @@ const DisputeCreate = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    console.log('Dispute Submitted:');
-    console.log('Swap Title:', formData.swapTitle);
-    console.log('Swapping With:', formData.swappingWith);
-    console.log('Statement:', formData.statement);
-    console.log('Files:', formData.files);
-    
+
+    const data = new FormData();
+    data.append('swapTitle', formData.swapTitle);
+    data.append('swappingWith', formData.swappingWith);
+    data.append('statement', formData.statement);
+
+    formData.files.forEach((file) => {
+      data.append('files', file); // multiple file same key te jabe
+    });
+
+    console.log(formData)
   };
 
   return (
-    <div className="w-[836px] mx-auto mt-8">
+    <div className="w-full max-w-[836px] mx-auto mt-8 px-4">
       <form onSubmit={handleSubmit}>
         <div className="border border-gray-200 p-4 rounded-md mb-6">
-        
-  <div className="flex justify-between mb-2">
-    <p className="font-medium text-gray-600">Swap Title:</p>
-    <p className="text-gray-800">{formData.swapTitle}</p>
-  </div>
-  <div className="flex justify-between">
-    <p className="font-medium text-gray-600">Swapping With:</p>
-    <p className="text-gray-800">{formData.swappingWith}</p>
-  </div>
-
-
+          <div className="flex justify-between mb-2 flex-col sm:flex-row">
+            <p className="font-medium text-gray-600">Swap Title:</p>
+            <p className="text-gray-800">{formData.swapTitle}</p>
+          </div>
+          <div className="flex justify-between flex-col sm:flex-row">
+            <p className="font-medium text-gray-600">Swapping With:</p>
+            <p className="text-gray-800">{formData.swappingWith}</p>
+          </div>
         </div>
 
         <div className="mb-6">
@@ -116,7 +117,8 @@ const DisputeCreate = () => {
                     onClick={() => handleRemoveFile(index)}
                     className="text-red-600 text-xs hover:underline"
                   >
-                    Remove
+               
+                  <RxCross1 />
                   </button>
                 </li>
               ))}
@@ -124,17 +126,17 @@ const DisputeCreate = () => {
           )}
         </div>
 
-        <div className="flex justify-center gap-5">
+        <div className="flex mb-5  sm:flex-row justify-center gap-5">
           <button
             type="button"
             onClick={() => setFormData({ ...formData, statement: '', files: [] })}
-            className="border border-blue-500 w-1/2 p-2 rounded-md hover:bg-gray-100"
+            className="border border-blue-500 w-full sm:w-1/2 p-2 rounded-md hover:bg-gray-100"
           >
             Cancel
           </button>
           <button
             type="submit"
-            className="border border-blue-500 bg-blue-600 text-white w-1/2 p-2 rounded-md hover:bg-blue-700"
+            className="border border-blue-500 bg-blue-600 text-white w-full sm:w-1/2 p-2 rounded-md hover:bg-blue-700"
           >
             Dispute
           </button>

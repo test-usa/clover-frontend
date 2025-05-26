@@ -1,52 +1,182 @@
-import { generateRandomId } from "@/utils/utils";
-import { FaCircleCheck } from "react-icons/fa6";
+import { useState, ChangeEvent, FormEvent } from 'react';
+import { PiUploadSimpleFill } from 'react-icons/pi';
+import { RxCross1 } from "react-icons/rx";
 
-const arrayInfo = [
-  {
-    id: generateRandomId(),
-    title: "What happens next?",
-    description: [
-      "The SwapSpot admin team will now review the dispute, taking into consideration the statements and evidence provided by both you and Neha Mayumi.",
-      "They will work towards a fair resolution.",
-      "You will be notified of the outcome and any actions taken.",
-      "This process helps ensure both parties are committed to completing the swap.",
-      "5% of your fund will be charged for Platform fee."
-    ]
-  }
-];
+interface DisputeFormData {
+  swapTitle: string;
+  swappingWith: string;
+  filedOn:string;
+  statement: string;
+  files: File[];
+}
 
 const DisputeResponse = () => {
+  const [formData, setFormData] = useState<DisputeFormData>({
+    swapTitle: '',
+    swappingWith: '',
+    filedOn:'',
+    statement: '',
+    files: [],
+  });
+
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const selectedFiles = e.target.files;
+    if (!selectedFiles) return;
+    setFormData((prev) => ({
+      ...prev,
+      files: [...prev.files, ...Array.from(selectedFiles)],
+    }));
+  };
+
+  const handleRemoveFile = (index: number) => {
+    const updatedFiles = [...formData.files];
+    updatedFiles.splice(index, 1);
+    setFormData({ ...formData, files: updatedFiles });
+  };
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    const data = new FormData();
+    data.append('swapTitle', formData.swapTitle);
+    data.append('swappingWith', formData.swappingWith);
+    data.append('statement', formData.statement);
+
+    formData.files.forEach((file) => {
+      data.append('files', file); // multiple file same key te jabe
+    });
+
+    console.log(formData);
+  };
+
   return (
-    <div className="max-w-[660px] w-full mx-auto px-4 py-6 sm:py-10 md:py-14">
-      <div className="flex flex-col gap-3 items-center text-center justify-center mb-6">
-        <FaCircleCheck className="text-green-500 text-6xl sm:text-7xl" />
-        <h1 className="text-xl sm:text-2xl font-semibold">
-          Dispute Submitted Successfully!
-        </h1>
-        <p className="text-sm sm:text-base text-gray-700">
-          Your dispute regarding the swap “Branding & Identity for Web Development” with Neha Mayumi has been submitted.
-        </p>
-      </div>
-
-      {arrayInfo.map((item) => (
-        <div key={item.id}>
-          <h2 className="text-lg sm:text-xl font-semibold mb-3">{item.title}</h2>
-          <ul className="list-disc list-inside space-y-2 text-gray-700 text-sm sm:text-base">
-            {item.description.map((point, index) => (
-              <li key={index}>{point}</li>
-            ))}
-          </ul>
+    <div className="w-full max-w-[836px] mx-auto mt-8 px-4">
+      <form onSubmit={handleSubmit}>
+        <div className="border border-gray-200 p-4 rounded-md mb-6">
+          <div className="flex justify-between mb-2 flex-col sm:flex-row">
+            <p className="font-medium text-gray-600">Swap Title:</p>
+            <p className="text-gray-800">{formData.swapTitle}</p>
+          </div>
+          <div className="flex justify-between flex-col mb-2 sm:flex-row">
+            <p className="font-medium text-gray-600">Swapping With:</p>
+            <p className="text-gray-800">{formData.swappingWith}</p>
+          </div>
+          <div className="flex justify-between flex-col   sm:flex-row">
+            <p className="font-medium text-gray-600">Filed On::</p>
+            <p className="text-gray-800">{formData.filedOn}</p>
+          </div>
         </div>
-      ))}
 
-      <div className="flex flex-col gap-3 mt-6">
-        <button className="w-full sm:w-1/2 mx-auto border border-blue-400 py-2 rounded-md hover:bg-blue-50 transition">
-          View Swap Details
-        </button>
-        <button className="bg-blue-500 text-white w-full sm:w-1/2 mx-auto py-2 rounded-md hover:bg-blue-700 transition">
-          Go to Dashboard
-        </button>
-      </div>
+          <div className="mb-6">
+          <h1 className="text-xl font-semibold mb-2">Neha Mayumi’s Statement</h1>
+          <textarea
+            name="statement"
+           
+            className="border border-gray-200 rounded-md w-full p-4"
+            rows={5}
+          />
+        </div>
+
+        <div>
+          <h1 className='text-xl font-semibold mb-2'>Neha Mayumi’ Evidence</h1>
+           <ul className="mt-3 space-y-2 text-sm text-gray-700">
+              {formData.files.map((file, index) => (
+                <li
+                  key={index}
+                  className="flex justify-between items-center bg-gray-100 px-3 py-2 rounded"
+                >
+                  {file.name}
+                  <button
+                    type="button"
+                    onClick={() => handleRemoveFile(index)}
+                    className="text-red-600 text-xs hover:underline"
+                  >
+                    <RxCross1 />
+                  </button>
+                </li>
+              ))}
+            </ul>
+        </div>
+
+        <div className="mb-6">
+          <h1 className="text-xl font-semibold mb-2">Your Statement</h1>
+          <textarea
+            name="statement"
+            value={formData.statement}
+            onChange={handleChange}
+            className="border border-gray-200 rounded-md w-full p-4"
+            placeholder="Clearly explain what went wrong and why you are filing this dispute."
+            rows={5}
+          />
+          <p className="text-sm text-gray-500 mt-1">
+            Be factual and include relevant details. This statement will be shared with the other user and the SwapSpot admin team.
+          </p>
+        </div>
+
+        <div className="mb-6">
+          <h1 className="text-xl font-semibold mb-2">Upload Evidence (Optional)</h1>
+          <div className="border border-gray-200 bg-gray-50 flex flex-col items-center justify-center text-center rounded-md gap-3 py-6 cursor-pointer">
+            <PiUploadSimpleFill className="text-3xl" />
+            <h3>Drag files here or click to upload</h3>
+            <input
+              type="file"
+              multiple
+              onChange={handleFileChange}
+              className="hidden"
+              id="file-upload"
+            />
+            <label
+              htmlFor="file-upload"
+              className="text-blue-600 cursor-pointer hover:underline"
+            >
+              Upload files
+            </label>
+            <p className="text-sm text-gray-500">
+              Supported formats: Images, PDFs, etc. (Max file size: 10MB per file)
+            </p>
+          </div>
+
+          {formData.files.length > 0 && (
+            <ul className="mt-3 space-y-2 text-sm text-gray-700">
+              {formData.files.map((file, index) => (
+                <li
+                  key={index}
+                  className="flex justify-between items-center bg-gray-100 px-3 py-2 rounded"
+                >
+                  {file.name}
+                  <button
+                    type="button"
+                    onClick={() => handleRemoveFile(index)}
+                    className="text-red-600 text-xs hover:underline"
+                  >
+                    <RxCross1 />
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+
+        <div className="flex mb-5 flex-row justify-center gap-5">
+          <button
+            type="button"
+            onClick={() => setFormData({ ...formData, statement: '', files: [] })}
+            className="border border-blue-500 w-full sm:w-1/2 p-2 rounded-md hover:bg-gray-100"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            className="border border-blue-500 bg-blue-600 text-white w-full sm:w-1/2 p-2 rounded-md hover:bg-blue-700"
+          >
+            Response
+          </button>
+        </div>
+      </form>
     </div>
   );
 };
