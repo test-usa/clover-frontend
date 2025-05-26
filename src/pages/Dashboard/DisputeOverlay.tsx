@@ -1,5 +1,10 @@
 const DisputeOverlay = () => {
-  return <div>DisputeOverlay</div>;
+  return <div>
+    
+    
+   <h1>DisputeOverlay</h1>
+    
+    </div>;
 };
 
 export default DisputeOverlay;
