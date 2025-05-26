@@ -112,7 +112,7 @@ const PublicMyProfile = () => {
       </div>
       <div>
         <h1 className=" font-semibold mt-6" >Portfolio</h1>
-         <button className=" border-1 p-2 rounded-md mt-3 flex items-center gap-3"> <FaPassport></FaPassport> Visit Portfolio</button>
+         <button className=" border-1  border-gray-200 p-2 rounded-md mt-3 flex items-center gap-3"> <FaPassport></FaPassport> Visit Portfolio</button>
 
       </div>
       <div>
