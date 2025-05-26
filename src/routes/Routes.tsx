@@ -36,6 +36,8 @@ import DisputeResponse from "@/pages/dispute/DisputeResponse";
 import DisputeResponseSuccess from "@/pages/dispute/DisputeResponseSuccess";
 import IdentityVerification from "@/pages/Dashboard/IdentityVerification";
 import IdentityVerificationSuccess from "@/pages/Dashboard/IdentityVerificationSuccess";
+import SubscriptionUpgrade from "@/pages/Dashboard/SubscriptionUpgrade";
+import SubscriptionUpgradeSuccess from "@/pages/Dashboard/SubscriptionUpgradeSuccess";
 
 const routes = createBrowserRouter([
   {
@@ -184,6 +186,14 @@ const routes = createBrowserRouter([
       {
         path: "identity-verification/success",
         element: <IdentityVerificationSuccess />,
+      },
+      {
+        path: "subscription-upgrade",
+        element: <SubscriptionUpgrade />,
+      },
+      {
+        path: "subscription-upgrade/success",
+        element: <SubscriptionUpgradeSuccess />,
       },
     ],
   },
