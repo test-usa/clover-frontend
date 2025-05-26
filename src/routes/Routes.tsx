@@ -34,6 +34,8 @@ import DisputeCreate from "@/pages/dispute/DisputeCreate";
 import DisputeCreateSuccess from "@/pages/dispute/DisputeCreateSuccess";
 import DisputeResponse from "@/pages/dispute/DisputeResponse";
 import DisputeResponseSuccess from "@/pages/dispute/DisputeResponseSuccess";
+import IdentityVerification from "@/pages/Dashboard/IdentityVerification";
+import IdentityVerificationSuccess from "@/pages/Dashboard/IdentityVerificationSuccess";
 
 const routes = createBrowserRouter([
   {
@@ -174,6 +176,14 @@ const routes = createBrowserRouter([
       {
         path: "setting",
         element: <Setting />,
+      },
+      {
+        path: "identity-verification",
+        element: <IdentityVerification />,
+      },
+      {
+        path: "identity-verification/success",
+        element: <IdentityVerificationSuccess />,
       },
     ],
   },
