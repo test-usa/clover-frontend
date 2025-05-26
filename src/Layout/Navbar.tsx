@@ -81,7 +81,7 @@ const Navbar: React.FC = () => {
               Sign In
             </Button>
             <Button
-              onClick={() => navigate("/register")}
+              onClick={() => navigate("/signup")}
               className="bg-primary-500 text-white hover:bg-primary-800"
             >
               Join/Register

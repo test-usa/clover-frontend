@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const OTP: React.FC = () => {
   const [otp, setOtp] = useState<string[]>(new Array(6).fill(''));
@@ -6,7 +7,7 @@ const OTP: React.FC = () => {
   const [isResendDisabled, setIsResendDisabled] = useState<boolean>(true);
 
   const inputRefs = useRef<HTMLInputElement[]>([]);
-
+ const navigate = useNavigate()
 
   const isOtpComplete = otp.every(digit => digit !== '' && !isNaN(Number(digit)));
 
@@ -99,6 +100,8 @@ const OTP: React.FC = () => {
       console.log('Verifying OTP:', fullOtp);
       alert(`OTP Entered: ${fullOtp}`); // For demonstration purposes
       // successful verification, navigate the user to the next page
+      // navigation need
+      navigate("/login")
     } else {
 
       alert('Please enter a 6-digit OTP.');

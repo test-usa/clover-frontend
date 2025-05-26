@@ -126,7 +126,7 @@ const SubscriptionUpgrade = () => {
           </div>
           <div className="w-full">
             <button className="px-6 py-2 bg-primary-600 text-white rounded-md w-full">
-              Pay & Upgrade
+              Upgrade
             </button>
           </div>
         </div>

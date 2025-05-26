@@ -25,7 +25,7 @@ const SwapCard: React.FC<SwapCardProps> = ({
   const isCurrent = variant === "current";
 
   return (
-    <div className="border rounded-lg p-4 border-gray-200 bg-white shadow-sm flex flex-col space-y-4">
+    <div className="border rounded-lg p-8 border-gray-200 bg-white shadow-sm flex flex-col space-y-4">
       {/* 1. You are swapping */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
         <h1 className="font-semibold text-typo-600">You are swapping:</h1>
