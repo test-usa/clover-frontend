@@ -33,8 +33,9 @@ const PublicMyProfile = () => {
     {/* another div */}
 
     <div className="p-4">
-      <div className="flex gap-24 items-center">
-        <div className="flex flex-col gap-2 ">
+      <div className=" md:flex md:gap-24 md:items-center">
+        <div className="">
+          <div className="flex md:flex-col   gap-5 ">
           <div className="relative ">
             <img className="h-[65px] w-[65px] rounded-full" src="https://i.pravatar.cc/100?img=1" alt="" />
             <div
@@ -72,13 +73,16 @@ const PublicMyProfile = () => {
 
 
           </div>
-          <h1 className="text-2xl font-semibold">Neha Mayumi</h1>
+         <div>
+           <h1 className="text-2xl font-semibold">Neha Mayumi</h1>
           <div className="flex items-center gap-2">
             <IoLocationOutline />
             <p> Los Angeles, USA</p>
           </div>
+         </div>
         </div>
-        <div className="flex mt-16 gap-6" >
+        </div>
+        <div className="flex md:mt-20 mt-6 gap-6" >
           <div>
             <h1 className=" font-semibold">Status</h1>
             <p>active</p>
@@ -98,7 +102,7 @@ const PublicMyProfile = () => {
 
       <div>
         <h1 className=" font-semibold mt-6">Bio</h1>
-        <p className="w-1/2">
+        <p className="md:w-1/2">
           Creative graphic designer with 5+ years of experience specializing in branding and digital design. Passionate about clean aesthetics and effective visual communication. Eager to expand my skillset into web development to bring designs to life online.
         </p>
       </div>
@@ -113,12 +117,12 @@ const PublicMyProfile = () => {
       </div>
       <div>
         <h1 className=" font-semibold mt-6" >Portfolio</h1>
-        <button className=" border-1 p-2 rounded-md mt-3 flex items-center gap-3"> <FaPassport></FaPassport> Visit Portfolio</button>
+         <button className=" border-1 p-2 rounded-md mt-3 flex items-center gap-3"> <FaPassport></FaPassport> Visit Portfolio</button>
 
       </div>
       <div>
         <h1 className=" font-semibold mt-6"> Reviews for Neha Mayumi</h1>
-        <div className="border-2 border-gray-100 w-[400px] p-4 rounded-md ">
+        <div className="border-2 border-gray-100 md:w-[400px] p-4 rounded-md ">
           <div className="flex items-center gap-5">
             <img className="h-[65px] w-[65px] rounded-full" src="https://i.pravatar.cc/100?img=1" alt="" />
             <div>
