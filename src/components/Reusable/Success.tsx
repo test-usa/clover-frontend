@@ -30,7 +30,7 @@ const Success = ({title,message,url}:TProps) => {
           </div>
         </div>
 
-        <h1 className="text-[24px] sm:text-[28px] font-bold text-gray-800">
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">
           {title}
         </h1>
         <p className="text-gray-600 text-sm sm:text-base">
