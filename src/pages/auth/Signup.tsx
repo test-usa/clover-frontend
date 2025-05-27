@@ -87,7 +87,7 @@ const Signup = () => {
         <img src={registerImg} alt="Login visual" className="" />
       </div>
       <div className="w-full max-w-md">
-        <div className="flex flex-col justify-center items-center gap-6 mb-6">
+        <div className="flex flex-col justify-center items-center gap-6 my-8">
           <img src={logo} alt="logo" className="w-[60px] h-[56px]" />
           <div className="flex flex-col items-center justify-center gap-2 text-center">
             <h1 className="font-bold text-2xl">Join the SwapSpot <br /> Community</h1>
@@ -125,7 +125,7 @@ const Signup = () => {
               />
               <span
                 onClick={() => setShow(!isShow)}
-                className="absolute right-3 top-[38px] text-gray-500 cursor-pointer"
+                className="absolute right-9 top-9 text-gray-500 cursor-pointer"
               >
                 {isShow ? <LuEye /> : <LuEyeClosed />}
               </span>
@@ -153,7 +153,7 @@ const Signup = () => {
                           ></div>
                         </div>
                         <p className={`text-sm mt-1 text-${strength.label === "Weak" ? "red" : strength.label === "Medium" ? "yellow" : "green"}-600`}>
-                          Password Strength: {strength.label}
+                          {strength.label}
                         </p>
                       </>
                     );
@@ -175,7 +175,7 @@ const Signup = () => {
               />
               <span
                 onClick={() => setShowConfirm(!isShowConfirm)}
-                className="absolute right-3 top-[38px] text-gray-500 cursor-pointer"
+                className="absolute right-9 top-9 text-gray-500 cursor-pointer"
               >
                 {isShowConfirm ? <LuEye /> : <LuEyeClosed />}
               </span>
@@ -226,7 +226,7 @@ const Signup = () => {
 
           {/* Footer Text */}
           <div className="my-4 text-center text-sm">
-            <span>Already have an account? <Link to="" className="text-blue-700 hover:underline">Sign in</Link></span>
+            <span>Already have an account? <Link to="/login" className="text-blue-700 hover:underline">Sign in</Link></span>
           </div>
           <div className="text-center text-xs text-gray-500">
             <p>
