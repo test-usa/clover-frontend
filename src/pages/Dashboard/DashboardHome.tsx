@@ -25,7 +25,7 @@ const DashboardHome = () => {
   return (
     <div className="p-4">
       <div>
-        <h1 className="w-[700] text-[48px]">Hi Dwiky!</h1>
+        <h1 className="text-5xl">Hi Dwiky!</h1>
         <p className="mb-7">Ready to swap skills?</p>
       </div>
       <div>
@@ -33,7 +33,7 @@ const DashboardHome = () => {
       </div>
       <Matches />
       <div>
-        <h1 className="text-[28px] font-bold mt-10 mb-6">Recent Activities</h1>
+        <h1 className="text-3xl font-bold mt-10 mb-6">Recent Activities</h1>
         {
           activites.map((item, i) => (
             <div key={i} className="mb-5">
