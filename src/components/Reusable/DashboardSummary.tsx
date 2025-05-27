@@ -38,7 +38,7 @@ const DashboardSummary = ({ count, title }: TSummary) => {
   const iconBgClass = iconBgMap[title] || 'bg-gray-100';
 
   return (
-    <div className={`${bgClass} p-4 rounded-xl w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xs shadow-sm`}>
+    <div className={`${bgClass} p-4 rounded-xl w-full sm:max-w-sm md:max-w-md lg:max-w-xs shadow-sm`}>
       <div className="flex items-center justify-between">
         <div className={`${iconBgClass} p-2 rounded-lg flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12`}>
           <img src={img} alt={title} className="w-5 h-5 sm:w-6 sm:h-6 object-contain" />

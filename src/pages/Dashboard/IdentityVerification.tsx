@@ -42,7 +42,7 @@ const IdentityVerification = () => {
   const phone = watch('phone');
 
   return (
-    <div>
+    <div className='p-8'>
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-5">
         <div className="flex items-center gap-x-3">
           <span className="text-xl md:text-2xl"><IoIosArrowBack /></span>
