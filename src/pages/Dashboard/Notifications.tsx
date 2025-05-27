@@ -19,12 +19,12 @@ const Notifications = () => {
                </div>
                
              </div>
-             <hr className="text-gray-300 my-5" />
+             <hr className="text-gray-200 my-5" />
 
              <div className="mx-3 md:mx-8 ">
               <div className="flex justify-between">
                 <div>
-                <h1 className="text-blue-400 mb-3 text-2xl">Escrow Deposit Returned</h1>
+                <h1 className="text-info-500 mb-3 text-2xl">Escrow Deposit Returned</h1>
                 <p>Your escrow deposit of $47.5 USD for the swap Branding & Identity for Web Development has been successfully returned.   </p>
               </div>
               <div>12 hours</div>
@@ -36,7 +36,7 @@ const Notifications = () => {
              <div className="mx-3 md:mx-8 ">
               <div className="flex justify-between">
                 <div>
-                <h1 className="text-green-400 mb-3 text-2xl">Swap Completed!</h1>
+                <h1 className="text-[#16B364] mb-3 text-2xl">Swap Completed!</h1>
                 <p>Your swap for Branding & Identity with Eric Yates has been marked as completed by both parties.   </p>
               </div>
               <div>13 hours</div>
