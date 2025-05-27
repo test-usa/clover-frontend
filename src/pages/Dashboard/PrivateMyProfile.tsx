@@ -6,9 +6,9 @@ const PrivateMyProfile = () => {
 
   return (
     <>
-      <div>
+      <div className="pt-4 px-2">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row justify-between gap-4">
+        <div className="flex justify-between gap-4">
           <div className="flex items-center gap-2">
             <MdOutlineKeyboardArrowLeft className="text-3xl" />
             <h1 className="text-3xl">My Profile</h1>
@@ -36,9 +36,9 @@ const PrivateMyProfile = () => {
             src="https://i.pravatar.cc/100?img=1"
             alt=""
           />
-          <div className="mt-3 sm:mt-0">
+          <div className="mt-3 sm:mt-0 ">
             <h1 className="text-xl font-semibold">Profile Photo</h1>
-            <div className="flex md:flex-col sm:flex-row gap-3 items-start sm:items-center mt-3">
+            <div className="flex  gap-3 items-start sm:items-center mt-3">
               <button className="border border-gray-200 md:px-2 md:py-1 rounded-md">
                 Upload Photo
               </button>
