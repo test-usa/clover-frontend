@@ -9,7 +9,7 @@ const Browse = () => {
         <h1 className="text-3xl font-bold mb-3">Browse Swaps</h1>
         <hr className="text-[#D2D6DB]" />
       </div>
-
+      {/* input wrapper */}
       <SearchBox />
 
       <InputWrapper />
