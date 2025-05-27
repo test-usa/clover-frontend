@@ -1,12 +1,13 @@
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 
+
 const Notifications = () => {
   return <div>
-        <div className="pt-4 ">
+        <div className="pt-4 px-4">
                {/* Header */}
                <div className="flex justify-between ">
-                 <div className="flex items-center gap-4">
+                 <div className="flex items-center gap-2">
                    <MdOutlineKeyboardArrowLeft className="text-3xl" />
                    <h1 className="text-3xl">Notification</h1>
                  </div>
@@ -23,10 +24,46 @@ const Notifications = () => {
              <div className="mx-3 md:mx-8 ">
               <div className="flex justify-between">
                 <div>
-                <h1 className="text-blue-400 text-2xl">Escrow Deposit Returned</h1>
+                <h1 className="text-blue-400 mb-3 text-2xl">Escrow Deposit Returned</h1>
                 <p>Your escrow deposit of $47.5 USD for the swap Branding & Identity for Web Development has been successfully returned.   </p>
               </div>
-              <div>time</div>
+              <div>12 hours</div>
+              </div>
+               <hr className="text-gray-300 my-5" />
+
+              
+             </div>
+             <div className="mx-3 md:mx-8 ">
+              <div className="flex justify-between">
+                <div>
+                <h1 className="text-green-400 mb-3 text-2xl">Swap Completed!</h1>
+                <p>Your swap for Branding & Identity with Eric Yates has been marked as completed by both parties.   </p>
+              </div>
+              <div>13 hours</div>
+              </div>
+               <hr className="text-gray-300 my-5" />
+
+              
+             </div>
+             <div className="mx-3 md:mx-8 ">
+              <div className="flex justify-between">
+                <div>
+                <h1 className="text-blue-400 mb-3 text-2xl">Proposal Accepted</h1>
+                <p>Great news! Eric Yates has accepted your swap proposal for Graphic Design.</p>
+              </div>
+              <div>15 hours</div>
+              </div>
+               <hr className="text-gray-300 my-5" />
+
+              
+             </div>
+             <div className="mx-3 md:mx-8 ">
+              <div className="flex justify-between">
+                <div>
+                <h1 className="text-blue-400 mb-3 text-2xl">Swap Proposal Received</h1>
+                <p>You've received a new swap proposal from Eric Yates for Web Development.  </p>
+              </div>
+              <div>14 hours</div>
               </div>
                <hr className="text-gray-300 my-5" />
 
