@@ -18,14 +18,14 @@ const arrayInfo = [
 
 const DisputeCreateSuccess = () => {
   return (
-    <div className="max-w-[660px] w-full mx-auto px-4 py-6 sm:py-10 md:py-14">
+    <div className="max-w-[660px] w-full mx-auto px-4 py-6 sm:py-10 md:py-28">
       <div className="flex flex-col gap-3 items-center text-center justify-center mb-6">
-        <FaCircleCheck className="text-green-500 text-6xl sm:text-7xl" />
-        <h1 className="text-xl sm:text-2xl font-semibold">
+        <FaCircleCheck className="text-success-500 text-6xl sm:text-7xl" />
+        <h1 className="text-[24px] text-typo-900 sm:text-2xl font-manrope font-bold">
           Dispute Submitted Successfully!
         </h1>
-        <p className="text-sm sm:text-base text-gray-700">
-          Your dispute regarding the swap “Branding & Identity for Web Development” with Neha Mayumi has been submitted.
+        <p className="text-[14px] sm:text-base font-manrope font-medium text-gray-500">
+          Your dispute regarding the swap “Branding & Identity for Web Development” with <span className="text-typo-700 font-manrope font-bold">Neha Mayumi </span>has been submitted.
         </p>
       </div>
 
@@ -40,14 +40,14 @@ const DisputeCreateSuccess = () => {
         </div>
       ))}
 
-      <div className="flex gap-3 mt-6">
+      <div className=" flex-col  md:mx-28 mt-6">
         <Link to="/dashboard/swap-active-detail" className="flex-1">
-          <button className="w-full border border-blue-400 py-2 rounded-md hover:bg-blue-50 transition cursor-pointer">
+          <button className="w-full border border-primary-500 mb-4 py-[12px] rounded-md bg-white text-primary-500 transition cursor-pointer">
             View Swap Details
           </button>
         </Link>
         <Link to="/dashboard" className="flex-1">
-          <button className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-700 transition cursor-pointer">
+          <button className="w-full bg-primary-500 text-white py-[12px] rounded-md text-[14px] transition cursor-pointer">
             Go to Dashboard
           </button>
         </Link>
