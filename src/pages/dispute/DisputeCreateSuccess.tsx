@@ -1,5 +1,6 @@
 import { generateRandomId } from "@/utils/utils";
 import { FaCircleCheck } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const arrayInfo = [
   {
@@ -16,7 +17,7 @@ const arrayInfo = [
 ];
 
 const DisputeCreateSuccess = () => {
-   return (
+  return (
     <div className="max-w-[660px] w-full mx-auto px-4 py-6 sm:py-10 md:py-14">
       <div className="flex flex-col gap-3 items-center text-center justify-center mb-6">
         <FaCircleCheck className="text-green-500 text-6xl sm:text-7xl" />
@@ -39,14 +40,19 @@ const DisputeCreateSuccess = () => {
         </div>
       ))}
 
-      <div className="flex flex-col gap-3 mt-6">
-        <button className="w-full sm:w-1/2 mx-auto border border-blue-400 py-2 rounded-md hover:bg-blue-50 transition">
-          View Swap Details
-        </button>
-        <button className="bg-blue-500 text-white w-full sm:w-1/2 mx-auto py-2 rounded-md hover:bg-blue-700 transition">
-          Go to Dashboard
-        </button>
+      <div className="flex gap-3 mt-6">
+        <Link to="/dashboard/swap-active-detail" className="flex-1">
+          <button className="w-full border border-blue-400 py-2 rounded-md hover:bg-blue-50 transition cursor-pointer">
+            View Swap Details
+          </button>
+        </Link>
+        <Link to="/dashboard" className="flex-1">
+          <button className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-700 transition cursor-pointer">
+            Go to Dashboard
+          </button>
+        </Link>
       </div>
+
     </div>
   );
 };

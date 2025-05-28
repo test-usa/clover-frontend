@@ -1,5 +1,6 @@
 import PricingCardEscrow from "@/components/Pricing/PricingCardEscrow";
 import PricingCardMonth from "@/components/Pricing/PricingCardMonth";
+import { Link } from "react-router-dom";
 
 
 const Pricing = () => {
@@ -16,7 +17,7 @@ const Pricing = () => {
       </div>
 
       {/* Pricing Cards */}
-      <div className="flex flex-col lg:flex-row justify-center items-center gap-6 lg:gap-10 mb-16">
+      <div className="flex flex-col lg:flex-row max-w-4xl mx-auto justify-center items-center gap-6 lg:gap-10 mb-16">
         <div className="w-full max-w-md">
           <PricingCardEscrow />
         </div>
@@ -26,8 +27,8 @@ const Pricing = () => {
       </div>
 
       {/* Escrow CTA */}
-      <div className="bg-gray-50 rounded-xl p-6 sm:p-8 max-w-4xl mx-auto">
-        <div className="text-center sm:text-left">
+      <div className="bg-gray-50 rounded-xl p-8 sm:p-8 flex flex-col max-w-4xl mx-auto justify-center items-center">
+        <div className="text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
             Secure Your Trades with Escrow
           </h2>
@@ -35,16 +36,13 @@ const Pricing = () => {
             For high-value trades, we recommend using our secure escrow service. A small fee applies for using this service, ensuring peace of mind for both parties.
           </p>
           <div className="flex justify-center">
-            <button className="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2 px-8 sm:py-3 sm:px-10 rounded-md transition duration-200 text-sm sm:text-base">
+            <Link to='/'>
+            <button className="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2 px-8 sm:py-3 sm:px-10 rounded-md transition duration-200 text-sm sm:text-base cursor-pointer">
               Learn About Escrow
-            </button>
+            </button></Link>
           </div>
         </div>
       </div>
-
-
-
-
     </div>
   );
 };

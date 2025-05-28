@@ -42,7 +42,7 @@ const IdentityVerification = () => {
   const phone = watch('phone');
 
   return (
-    <div>
+    <div className='p-8'>
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-5">
         <div className="flex items-center gap-x-3">
           <span className="text-xl md:text-2xl"><IoIosArrowBack /></span>
@@ -221,7 +221,7 @@ const IdentityVerification = () => {
              text-sm sm:text-base font-medium 
              px-6 py-2 sm:px-8 sm:py-3 md:px-[46px] md:py-[12px] 
              rounded-md shadow-sm transition duration-200 
-             focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-1"
+             focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-1 cursor-pointer"
         >
           Submit
         </button>

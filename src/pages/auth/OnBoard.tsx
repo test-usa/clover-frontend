@@ -594,7 +594,7 @@ const MultiStepForm: React.FC = () => {
             <button
               type="button"
               onClick={handleNextStep}
-              className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+              className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors cursor-pointer"
             >
               Next
             </button>
@@ -602,7 +602,7 @@ const MultiStepForm: React.FC = () => {
           {currentStep === 1 && (
             <button
               type="button"
-              className="px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-100 transition-colors"
+              className="px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-100 transition-colors cursor-pointer"
               onClick={() => {
                 // For "Skip" button, you might want to advance without full validation
                 // or clear the current step's optional fields before moving.
@@ -617,7 +617,7 @@ const MultiStepForm: React.FC = () => {
             <button
               type="button"
               onClick={handleNextStep} // This will trigger handleSubmit
-              className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+              className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors cursor-pointer"
             >
               Finish
             </button>

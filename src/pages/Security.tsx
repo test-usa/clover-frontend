@@ -1,4 +1,5 @@
 import { generateRandomId } from "@/utils/utils";
+import { Link } from "react-router-dom";
 
 const arrayInfo = [
   {
@@ -86,9 +87,11 @@ const Security = () => {
             Ready to Start Swapping?
           </h1>
         </div>
+        <Link to='/signup'>
         <button className="mt-6 mx-auto block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded transition duration-300">
           Join SwapSpot Today
         </button>
+        </Link>
       </div>
     </div>
   );

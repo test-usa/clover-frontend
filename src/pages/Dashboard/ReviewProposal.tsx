@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { AiOutlineCalendar } from "react-icons/ai";
 import { FaAngleLeft } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 function ReviewProposal() {
   // Static values for demonstration
   const offerSkills = ["Frontend", "UI/UX"];
@@ -100,12 +101,14 @@ function ReviewProposal() {
 
           {/* CTA */}
           <div className="flex justify-end gap-4">
-            <Button className="text-danger-600 px-8 border border-danger-500">
+            <Button className="text-danger-600 px-8 border border-danger-500 cursor-pointer">
               Decline
             </Button>
-            <Button className="bg-primary-600 hover:bg-primary-700 text-white">
+           <Link to='/dashboard/confirm-accepting-proposal'>
+            <Button className="bg-primary-600 hover:bg-primary-700 text-white cursor-pointer">
               Accept Proposal
             </Button>
+           </Link>
           </div>
         </div>
       </div>

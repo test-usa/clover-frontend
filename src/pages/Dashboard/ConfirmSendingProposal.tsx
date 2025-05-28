@@ -108,10 +108,10 @@ const ConfirmSendingProposal = () => {
             <p className="text-sm text-typo-600">Contact our support team anytime.</p>
           </div>
           <div className="flex flex-row gap-3">
-            <button className="px-6 py-2 border border-gray-400 rounded-md text-typo-700">
+            <button className="px-6 py-2 border border-gray-400 rounded-md text-typo-700 cursor-pointer">
               Cancel
             </button>
-            <button className="px-6 py-2 bg-primary-600 text-white rounded-md">
+            <button className="px-6 py-2 bg-primary-600 text-white rounded-md cursor-pointer">
               Confirm & Pay
             </button>
           </div>

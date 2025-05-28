@@ -3,6 +3,7 @@ import { FaAngleLeft } from "react-icons/fa6";
 import visaIcon from "../../assets/visa.svg";
 import ssIcon from "../../assets/ss.svg";
 import bcaIcon from "../../assets/bca.svg";
+import { Link } from "react-router-dom";
 
 const SubscriptionUpgrade = () => {
   // Define plan type as union of valid keys
@@ -125,9 +126,11 @@ const SubscriptionUpgrade = () => {
             <p className="text-sm font-bold text-typo-600">${selectedAmount.toFixed(2)} USD</p>
           </div>
           <div className="w-full">
-            <button className="px-6 py-2 bg-primary-600 text-white rounded-md w-full">
+           <Link to='success'>
+            <button className="px-6 py-2 bg-primary-600 text-white rounded-md w-full cursor">
               Upgrade
             </button>
+           </Link>
           </div>
         </div>
       </section>

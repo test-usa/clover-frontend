@@ -110,7 +110,7 @@ const ConfirmAcceptingProposal = () => {
           </div>
           <div className="w-full ">
             
-            <button className="px-6 py-2 bg-primary-600 text-white rounded-md w-full">
+            <button className="px-6 py-2 bg-primary-600 text-white rounded-md w-full cursor-pointer">
             Pay
             </button>
           </div>

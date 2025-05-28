@@ -1,6 +1,7 @@
 import { useState, ChangeEvent, FormEvent } from 'react';
 import { PiUploadSimpleFill } from 'react-icons/pi';
 import { RxCross1 } from "react-icons/rx";
+import { Link } from 'react-router-dom';
 
 interface DisputeFormData {
   swapTitle: string;
@@ -95,7 +96,7 @@ const DisputeCreate = () => {
             />
             <label
               htmlFor="file-upload"
-              className="text-blue-600 cursor-pointer hover:underline"
+              className="text-blue-600 hover:underline cursor-pointer"
             >
               Upload files
             </label>
@@ -130,13 +131,17 @@ const DisputeCreate = () => {
           <button
             type="button"
             onClick={() => setFormData({ ...formData, statement: '', files: [] })}
-            className="border border-blue-500 w-full sm:w-1/2 p-2 rounded-md hover:bg-gray-100"
+            className="border border-blue-500 w-full sm:w-1/2 p-2 rounded-md hover:bg-gray-100 cursor-pointer"
           >
             Cancel
+            
           </button>
-          <button
+         {/* <Link to='/dispute-create/success'>
+        
+         </Link> */}
+           <button
             type="submit"
-            className="border border-blue-500 bg-blue-600 text-white w-full sm:w-1/2 p-2 rounded-md hover:bg-blue-700"
+            className="border border-blue-500 bg-blue-600 text-white w-full sm:w-1/2 p-2 rounded-md hover:bg-blue-700 cursor-pointer"
           >
             Dispute
           </button>

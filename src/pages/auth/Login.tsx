@@ -86,12 +86,14 @@ const Login = () => {
             </div>
 
             {/* Submit Button */}
+           <Link to='/dashboard'>
             <button
               type="submit"
-              className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 hover:scale-105 transition"
+              className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 hover:scale-105 transition cursor-pointer"
             >
               Login
             </button>
+           </Link>
 
             {/* OR Divider */}
             <div className="my-4 flex items-center justify-center gap-2 text-gray-500 text-sm">
@@ -106,14 +108,14 @@ const Login = () => {
             <button className="w-full bg-white border border-gray-300 text-[#254EDB] p-2 rounded-md hover:scale-105 transition">
               <div className="flex justify-center items-center gap-4">
                 <FcGoogle />
-                <p className="text-sm font-bold">Continue with Google</p>
+                <p className="text-sm font-bold cursor-pointer">Continue with Google</p>
               </div>
             </button>
 
             <button className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 hover:scale-105 transition">
               <div className="flex justify-center items-center gap-4">
                 <FaFacebook />
-                <p className="text-sm font-bold">Continue with Facebook</p>
+                <p className="text-sm font-bold cursor-pointer">Continue with Facebook</p>
               </div>
             </button>
           </div>

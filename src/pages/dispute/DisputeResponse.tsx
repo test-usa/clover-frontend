@@ -1,11 +1,12 @@
 import { useState, ChangeEvent, FormEvent } from 'react';
 import { PiUploadSimpleFill } from 'react-icons/pi';
 import { RxCross1 } from "react-icons/rx";
+import { Link } from 'react-router-dom';
 
 interface DisputeFormData {
   swapTitle: string;
   swappingWith: string;
-  filedOn:string;
+  filedOn: string;
   statement: string;
   files: File[];
 }
@@ -14,7 +15,7 @@ const DisputeResponse = () => {
   const [formData, setFormData] = useState<DisputeFormData>({
     swapTitle: '',
     swappingWith: '',
-    filedOn:'',
+    filedOn: '',
     statement: '',
     files: [],
   });
@@ -71,11 +72,11 @@ const DisputeResponse = () => {
           </div>
         </div>
 
-          <div className="mb-6">
+        <div className="mb-6">
           <h1 className="text-xl font-semibold mb-2">Neha Mayumi’s Statement</h1>
           <textarea
             name="statement"
-           
+
             className="border border-gray-200 rounded-md w-full p-4"
             rows={5}
           />
@@ -83,23 +84,23 @@ const DisputeResponse = () => {
 
         <div>
           <h1 className='text-xl font-semibold mb-2'>Neha Mayumi’ Evidence</h1>
-           <ul className="mt-3 space-y-2 text-sm text-gray-700">
-              {formData.files.map((file, index) => (
-                <li
-                  key={index}
-                  className="flex justify-between items-center bg-gray-100 px-3 py-2 rounded"
+          <ul className="mt-3 space-y-2 text-sm text-gray-700">
+            {formData.files.map((file, index) => (
+              <li
+                key={index}
+                className="flex justify-between items-center bg-gray-100 px-3 py-2 rounded"
+              >
+                {file.name}
+                <button
+                  type="button"
+                  onClick={() => handleRemoveFile(index)}
+                  className="text-red-600 text-xs hover:underline"
                 >
-                  {file.name}
-                  <button
-                    type="button"
-                    onClick={() => handleRemoveFile(index)}
-                    className="text-red-600 text-xs hover:underline"
-                  >
-                    <RxCross1 />
-                  </button>
-                </li>
-              ))}
-            </ul>
+                  <RxCross1 />
+                </button>
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div className="mb-6">
@@ -161,21 +162,27 @@ const DisputeResponse = () => {
           )}
         </div>
 
-        <div className="flex mb-5 flex-row justify-center gap-5">
+        <div className="flex flex-row gap-4 mb-5 w-full">
           <button
             type="button"
             onClick={() => setFormData({ ...formData, statement: '', files: [] })}
-            className="border border-blue-500 w-full sm:w-1/2 p-2 rounded-md hover:bg-gray-100"
+            className="w-full border border-blue-500 p-2 rounded-md hover:bg-gray-100 cursor-pointer"
           >
             Cancel
           </button>
-          <button
-            type="submit"
-            className="border border-blue-500 bg-blue-600 text-white w-full sm:w-1/2 p-2 rounded-md hover:bg-blue-700"
-          >
-            Response
-          </button>
+
+          <Link to="success" className="w-full">
+            <button
+              type="submit"
+              className="w-full border border-blue-500 bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700 cursor-pointer"
+            >
+              Response
+            </button>
+          </Link>
         </div>
+
+
+
       </form>
     </div>
   );
