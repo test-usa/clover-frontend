@@ -133,7 +133,7 @@ const PrivateMyProfile = () => {
         {/* Skills I Want */}
       <div className="mt-6">
         <h2 className="text-lg font-manrope font-bold text-typo-900 mb-3">Skills I Want</h2>
-        <div className="fgrid grid-cols-1 md:grid-cols-3 gap-2 border border-gray-200 p-4 rounded-md">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 border border-gray-200 p-4 rounded-md">
           {[
             "Graphic Design",
             "Logo Design",
