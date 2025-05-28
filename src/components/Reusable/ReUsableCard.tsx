@@ -127,7 +127,7 @@ const ReUsableCard: React.FC<MatchCardProps> = ({
 
                             </div>
 
-                            <div className="flex absolute -bottom-2 -left-1 bg-[#FDEAD7] rounded-[100px] p-[2px] w-[56px] items-center text-xs text-gray-600 mt-1">
+                            <div className="flex absolute -bottom-2 -left-1 bg-[#FDEAD7] rounded-[100px] p-1  items-center text-xs text-gray-600 mt-1">
 
                                 <span className="text-[#EF6820] mr-1">★</span>
 
@@ -256,7 +256,7 @@ const ReUsableCard: React.FC<MatchCardProps> = ({
 
             <div className="flex justify-between space-x-3">
 
-                <Link to={"/dashboard/profile/:id/public"} className="flex-1 px-4 flex items-center justify-center py-2 border border-blue-300 rounded-md text-gray-700 hover:bg-blue-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                <Link to={"/dashboard/profile/:id/public"} className=" px-2 md:px-4 flex items-center justify-center py-1 md:py-2 border border-blue-300 rounded-md text-gray-700 hover:bg-blue-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
 
                     <h1>View Profile</h1>
 
@@ -264,7 +264,7 @@ const ReUsableCard: React.FC<MatchCardProps> = ({
 
                 <div className="flex gap-2">
 
-                    <button className="cursor-pointer px-4 py-2 bg-white text-black rounded-md hover:scale-105 transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                    <button className="cursor-pointer px-2 md:px-4 bg-white text-black rounded-md hover:scale-105 transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
 
                         <Link to='/dashboard/chat'>
                             <img src={messageIcon} alt="Message icon" />
@@ -272,7 +272,7 @@ const ReUsableCard: React.FC<MatchCardProps> = ({
 
                     </button>
 
-                    <Link to={"/dashboard/initiate-proposal"} className="px-6 flex items-center justify-center py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                    <Link to={"/dashboard/initiate-proposal"} className="px-2 md:px-4 flex items-center justify-center py-1 md:py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
 
                         <h1>Swap</h1>
 

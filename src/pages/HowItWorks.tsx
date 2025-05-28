@@ -51,8 +51,8 @@ const HowItWorks = () => {
               </p>
             </div>
 
-            <div className=" grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="flex flex-col">
+            <div className=" grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+              <div className="flex flex-col gap-6">
                 {infoArray.map((item) => {
                 return (
                   <div>
@@ -64,7 +64,7 @@ const HowItWorks = () => {
                 );
               })}
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col gap-6">
                 {infoArrays.map((item) => {
                 return (
                   <div>

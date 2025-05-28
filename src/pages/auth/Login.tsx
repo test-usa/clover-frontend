@@ -38,7 +38,7 @@ const Login = () => {
 
       {/* Right Side Form */}
       <div className="w-full max-w-md">
-        <div className="flex flex-col justify-center items-center gap-6 mb-6">
+        <div className="flex flex-col justify-center items-center gap-6 my-8">
           <img src={logo} alt="logo" className="w-[60px] h-[56px]" />
           <div className="flex flex-col items-center justify-center gap-2 text-center">
             <h1 className="font-bold text-2xl">Welcome Back to SwapSpot!</h1>
@@ -122,7 +122,7 @@ const Login = () => {
 
           {/* Footer Text */}
           <div className="my-4 text-center text-sm">
-            <span>Don't have an account? <Link to="" className="text-blue-700 hover:underline">Register Now</Link></span>
+            <span>Don't have an account? <Link to="/signup" className="text-blue-700 hover:underline">Register Now</Link></span>
           </div>
 
         </div>
