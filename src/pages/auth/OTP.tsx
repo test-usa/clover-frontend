@@ -187,7 +187,7 @@ const OTP: React.FC = () => {
           <button
             onClick={handleResendCode}
             disabled={isResendDisabled} // Disabled based on timer
-            className={`text-blue-500 text-sm font-medium ${isResendDisabled ? 'opacity-50 cursor-not-allowed' : 'hover:text-blue-600'
+            className={`text-blue-500 text-sm font-medium cursor-pointer${isResendDisabled ? 'opacity-50 cursor-not-allowed' : 'hover:text-blue-600'
               } mb-4`}
           >
             Resend Code
@@ -197,7 +197,7 @@ const OTP: React.FC = () => {
           <button
             onClick={handleContinue}
             disabled={!isOtpComplete}
-            className={`w-full bg-blue-500 text-white py-2 rounded-md ${!isOtpComplete
+            className={`w-full bg-blue-500 text-white py-2 rounded-md cursor-pointer ${!isOtpComplete
               ? 'opacity-50 cursor-not-allowed' // Styles for disabled state
               : 'hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50' // Styles for enabled state
               } transition duration-150 ease-in-out`}

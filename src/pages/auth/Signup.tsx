@@ -212,21 +212,21 @@ const Signup = () => {
             <button className="w-full cursor-pointer bg-white border border-gray-300 text-[#254EDB] p-2 rounded-md hover:scale-105 transition">
               <div className="flex justify-center items-center gap-4">
                 <FcGoogle />
-                <p className="text-sm font-bold">Continue with Google</p>
+                <p className="text-sm font-bold cursor-pointer">Continue with Google</p>
               </div>
             </button>
 
             <button className="w-full  cursor-pointer bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 hover:scale-105 transition">
               <div className="flex justify-center items-center gap-4">
                 <FaFacebook />
-                <p className="text-sm font-bold">Continue with Facebook</p>
+                <p className="text-sm font-bold cursor-pointer">Continue with Facebook</p>
               </div>
             </button>
           </div>
 
           {/* Footer Text */}
           <div className="my-4 text-center text-sm">
-            <span>Already have an account? <Link to="" className="text-blue-700 hover:underline">Sign in</Link></span>
+            <span>Already have an account? <Link to="" className="text-blue-700 hover:underline cursor-pointer">Sign in</Link></span>
           </div>
           <div className="text-center text-xs text-gray-500">
             <p>

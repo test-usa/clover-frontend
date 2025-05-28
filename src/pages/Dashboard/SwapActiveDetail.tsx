@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import messageIcon from '../../assets/Vector.png'
 import { IoIosArrowBack } from "react-icons/io";
 
@@ -16,16 +17,18 @@ const SwapActiveDetail = () => {
         </div>
 
         <div className="hidden sm:flex flex-row items-center gap-3">
-          <img src={messageIcon} alt="Message Icon" className="w-10 h-10" />
+          <Link to='/dashboard/chat'>
+          <img src={messageIcon} alt="Message Icon" className="w-10 h-10 cursor-pointer" />
+          </Link>
           <button
             type="button"
-            className="px-4 py-2 bg-white border border-primary-500 rounded-md text-sm font-medium text-primary-500 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="px-4 py-2 bg-white border border-primary-500 rounded-md text-sm font-medium text-primary-500 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer"
           >
             File A Dispute
           </button>
           <button
             type="button"
-            className="px-4 py-2 bg-indigo-600 border border-transparent rounded-md text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="px-4 py-2 bg-indigo-600 border border-transparent rounded-md text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer"
           >
             Mark Completed
           </button>

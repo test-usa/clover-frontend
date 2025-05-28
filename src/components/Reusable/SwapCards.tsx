@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import msg from "../../assets/msg.png";
 import { AiFillStar } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 export interface SwapCardProps {
   swapping: string;
@@ -83,43 +84,53 @@ const SwapCard: React.FC<SwapCardProps> = ({
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center pt-2 gap-3">
         {/* View Details */}
         <div className="cursor-pointer">
+        <Link to='/dashboard/swap-active-detail'>
           <Button className="text-primary-500 cursor-pointer" variant="outline">
             View Details
           </Button>
+        </Link>
         </div>
 
         {/* Right side action buttons */}
         <div className="flex flex-wrap items-center gap-2">
           {/* Chat icon */}
           <Button className="cursor-pointer" variant="ghost" size="icon">
+            <Link to='/dashboard/chat'>
             <img src={msg} alt="Chat" />
+            </Link>
           </Button>
 
           {/* Ongoing swap: Request a Dispute */}
           {isCurrent && (
+          <Link to='/dashboard/dispute-overlay'>
             <Button
               variant="destructive"
               className="bg-danger-500 text-typo-100 cursor-pointer"
             >
               Request a Dispute
             </Button>
+          </Link>
           )}
 
           {/* Proposal: Accept */}
           {isProposal && (
+           <Link to='/dashboard/confirm-accepting-proposal'>
             <Button variant="default" className="bg-primary-500 text-white">
               Accept
             </Button>
+           </Link>
           )}
 
           {/* Completed: Review */}
           {isCompleted && (
+           <Link to='/dashboard/review-proposal'>
             <Button
               variant="default"
-              className="bg-primary-600 hover:bg-primary-700 text-white"
+              className="bg-primary-600 hover:bg-primary-700 text-white cursor-pointer"
             >
               Review
             </Button>
+           </Link>
           )}
         </div>
       </div>

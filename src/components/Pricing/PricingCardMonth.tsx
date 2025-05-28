@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const features = [
   'Zero Swap Fee',
   'Boosted listings',
@@ -26,9 +28,11 @@ const PricingCardMonth = () => {
           <span className="text-xl font-medium text-gray-600">/month</span>
         </div>
 
-        <button className="bg-warning-500 hover:bg-yellow-600 text-white font-bold py-3 px-20 rounded-md transition duration-200">
-          Upgrade Now New
-        </button>
+        <Link to='/dashboard/subscription-upgrade'>
+          <button className="bg-warning-500 hover:bg-yellow-600 text-white font-bold py-3 px-20 rounded-md transition duration-200 cursor-pointer">
+            Upgrade Now
+          </button>
+        </Link>
       </div>
     </div>
   );

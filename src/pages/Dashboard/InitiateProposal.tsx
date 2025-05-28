@@ -235,7 +235,7 @@ function InitiateProposal() {
 
             {/* 8. CTA */}
             <div className="flex justify-end">
-              <Button className="bg-primary-600 hover:bg-primary-700 text-white">
+              <Button className="bg-primary-600 hover:bg-primary-700 text-white cursor-pointer">
                 Send Proposal
               </Button>
             </div>
