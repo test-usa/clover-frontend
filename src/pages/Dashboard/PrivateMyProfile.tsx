@@ -1,5 +1,8 @@
 import { useState } from "react";
+import { CiCircleRemove } from "react-icons/ci";
+import { IoLocationOutline } from "react-icons/io5";
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
+import img from "../../assets/Vector (1).png"
 
 const PrivateMyProfile = () => {
   const [isOn, setIsOn] = useState(false);
@@ -11,13 +14,13 @@ const PrivateMyProfile = () => {
         <div className="flex justify-between gap-4">
           <div className="flex items-center gap-2">
             <MdOutlineKeyboardArrowLeft className="text-3xl" />
-            <h1 className="text-3xl">My Profile</h1>
+            <h1 className="text-[24px] text-typo-900 font-bold font-manrope ">My Profile</h1>
           </div>
           <div className="flex items-center gap-3">
-            <button className="border border-gray-200 px-4 py-2 rounded-md">
+            <button className="border border-gray-300 text-typo-900 font-manrope font-bold text-[14px] px-4 py-2 rounded-md">
               Preview
             </button>
-            <button className="border border-gray-200 bg-gray-300 px-4 py-2 rounded-md">
+            <button className="border  bg-gray-400 text-white text-[14px] font-manrope font-bold px-4 py-2 rounded-md">
               Save
             </button>
           </div>
@@ -37,12 +40,12 @@ const PrivateMyProfile = () => {
             alt=""
           />
           <div className="mt-3 sm:mt-0 ">
-            <h1 className="text-xl font-semibold">Profile Photo</h1>
+            <h1 className="text-[20px] font-manrope font-bold text-typo-900">Profile Photo</h1>
             <div className="flex  gap-3 items-start sm:items-center mt-3">
-              <button className="border border-gray-200 md:px-2 md:py-1 rounded-md">
+              <button className="border border-gray-200 bg-gray-50 font-bold font-manrope text-typo-900 md:px-2 md:py-1 rounded-md">
                 Upload Photo
               </button>
-              <p>JPG, PNG, Max 2MB</p>
+              <p className="text-[16px] text-gray-500 font-manrope font-medium">JPG, PNG, Max 2MB</p>
             </div>
           </div>
         </div>
@@ -51,11 +54,11 @@ const PrivateMyProfile = () => {
         <div className="flex  md:items-center md:justify-between gap-6 mt-6">
           {/* Status */}
           <div className="mt-3">
-            <h1 className="text-xl font-semibold">Status</h1>
+            <h1 className="text-[20px] font-manrope font-bold text-typo-900">Status</h1>
             <div className="flex items-center gap-4 mt-2">
               <button
-                onClick={() => setIsOn(!isOn)}
-                className={`w-12 h-6 flex items-center rounded-full p-1 transition-colors duration-300 ${isOn ? "bg-green-500" : "bg-gray-300"
+                onClick={() => setIsOn(isOn)}
+                className={`w-12 h-6 flex items-center rounded-full p-1 transition-colors duration-300 ${isOn ? "bg-success-500" : "bg-gray-300"
                   }`}
               >
                 <div
@@ -63,16 +66,22 @@ const PrivateMyProfile = () => {
                     }`}
                 />
               </button>
-              <p>Available</p>
+              <p className="text-success-500">Available</p>
             </div>
           </div>
 
           {/* Verification */}
           <div className="mt-3">
-            <h1 className="text-xl font-semibold">Verification</h1>
-            <div className="flex gap-3">
+            <h1 className="text-[20px] font-manrope font-bold text-typo-900">Verification</h1>
+            <div className="flex items-center gap-3">
               <p className="text-green-400">verified</p>
-              <button>Verify Identity</button>
+              <button
+                disabled
+                className="border px-2 py-1 rounded-md border-gray-200 bg-gray-100 text-gray-400 cursor-not-allowed"
+              >
+                Verify Identity
+              </button>
+
             </div>
           </div>
         </div>
@@ -80,23 +89,24 @@ const PrivateMyProfile = () => {
         {/* Name and Location */}
         <div className="grid grid-cols-2 gap-6 mt-6">
           <div className="w-full md:w-auto">
-            <h1 className="font-semibold mb-2">Full Name</h1>
-            <h3 className="border border-gray-200 p-2 rounded-md">
+            <h1 className="text-[14px] font-manrope font-bold text-typo-900 mb-2">Full Name</h1>
+            <h3 className="border border-gray-200 bg-white font-manrope font-medium text-[14px] p-2 rounded-md">
               James David
             </h3>
           </div>
           <div className="w-full md:w-auto">
-            <h1 className="font-semibold mb-2">Location</h1>
-            <h3 className="border border-gray-200 p-2 rounded-md">
-              James David
-            </h3>
+            <h1 className="text-[14px] font-manrope font-bold text-typo-900 mb-2">Location</h1>
+            <div className="flex items-center gap-3 border border-gray-200 bg-white p-2 rounded-md">
+              <IoLocationOutline />
+              <h1 className=" font-manrope font-medium text-[14px]  "> James David</h1>
+            </div>
           </div>
         </div>
 
         {/* Bio */}
         <div className="mt-6">
-          <h1 className="font-semibold mb-2">Bio</h1>
-          <p className="border border-gray-200 p-5 w-full  rounded-md">
+          <h1 className="text-[20px] font-manrope font-bold text-typo-900 mb-2">Bio</h1>
+          <p className="border border-gray-200 p-5 w-full text-[16px] font-manrope font-medium text-typo-700  rounded-md">
             Creative graphic designer with 5+ years of experience specializing in
             branding and digital design. Passionate about clean aesthetics and
             effective visual communication. Eager to expand my skillset into web
@@ -105,31 +115,53 @@ const PrivateMyProfile = () => {
         </div>
 
         {/* Skills I Offer */}
-        <div className="mt-6">
-          <h1 className="font-semibold mb-2">Skills I Offer</h1>
-          <p className="border border-gray-200 p-5 w-full rounded-md">
-            <button className="text-blue-300 border-1 p-2 rounded-md">
-              Web Development
-            </button>
-          </p>
+         <div className="mt-6">
+        <h2 className="text-lg font-manrope font-bold text-typo-900 mb-3">Skills I Offer</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 border border-gray-200 p-4 rounded-md">
+          {["Web Development", "React", "Responsive Design Implementation"].map((skill) => (
+            <div
+              key={skill}
+              className="flex items-center gap-2 border border-info-50 p-2 rounded-md"
+            >
+              <span className="text-info-600 text-xs font-manrope font-medium">{skill}</span>
+              <CiCircleRemove />
+            </div>
+          ))}
         </div>
+      </div>
 
         {/* Skills I Want */}
-        <div className="mt-6">
-          <h1 className="font-semibold mb-2">Skills I Want</h1>
-          <p className="border border-gray-200 p-5 w-full rounded-md">
-            <button className="text-blue-300 border-1 p-2 rounded-md">
-              Web Development
-            </button>
-          </p>
+      <div className="mt-6">
+        <h2 className="text-lg font-manrope font-bold text-typo-900 mb-3">Skills I Want</h2>
+        <div className="fgrid grid-cols-1 md:grid-cols-3 gap-2 border border-gray-200 p-4 rounded-md">
+          {[
+            "Graphic Design",
+            "Logo Design",
+            "Branding & Identity",
+            "UI/UX Design (Visual)",
+            "Adobe Creative Suite"
+          ].map((skill) => (
+            <div
+              key={skill}
+              className="flex items-center gap-2 border border-info-50 p-2 rounded-md"
+            >
+              <span className="text-info-600 text-xs font-manrope font-medium">{skill}</span>
+              <CiCircleRemove />
+            </div>
+          ))}
         </div>
+      </div>
 
         {/* Portfolio */}
         <div className="mt-6">
-          <h1 className="font-semibold mb-2">Portfolio</h1>
-          <p className="border border-gray-200 w-full p-3 rounded-md">
-            Portfolio
-          </p>
+          <h1 className="text-[20px] font-manrope font-bold text-typo-900 mb-2">Portfolio</h1>
+          <div className=" flex items-center gap-2 border border-gray-200 w-full p-3 rounded-md">
+            <img className="text-gray-500" src={img} alt="no pic" />
+            <p className="">
+              Portfolio
+            </p>
+
+          </div>
         </div>
       </div></>
   );
