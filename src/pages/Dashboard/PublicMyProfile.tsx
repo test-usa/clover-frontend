@@ -4,6 +4,7 @@ import { IoLocationOutline } from "react-icons/io5";
 import { FaPassport } from "react-icons/fa";
 
 import img from "../../assets/chat.svg"
+import { Link } from "react-router-dom";
 
 const reviews = [
   {
@@ -45,8 +46,8 @@ const PublicMyProfile = () => {
         <h1 className="text-[24px] font-mancope font-bold text-typo-900">Athalia Putri</h1>
       </div>
       <div className="flex  items-center gap-3">
-        <img className="" src={img} alt="" />
-        <button className="border bg-primary-500 text-white px-4 py-2 rounded-md">Swap</button>
+       <Link to="/dashboard/chat"> <img className="" src={img} alt="" /></Link>
+       <Link to="/dashboard/swaps"> <button className="border bg-primary-500 text-white px-4 py-2 rounded-md">Swap</button></Link>
 
         <BsThreeDotsVertical className="text-3xl "></BsThreeDotsVertical>
 
