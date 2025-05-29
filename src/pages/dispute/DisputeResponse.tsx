@@ -25,8 +25,6 @@ const handleFormSubmit=(e:FormEvent)=>{
   navigate('/dispute-response/success');
 
 }
-
-
   const [formData, setFormData] = useState<DisputeFormData>({
     swapTitle: '',
     swappingWith: '',
@@ -63,7 +61,7 @@ const handleFormSubmit=(e:FormEvent)=>{
     data.append('statement', formData.statement);
 
     formData.files.forEach((file) => {
-      data.append('files', file); // multiple file same key te jabe
+      data.append('files', file); 
     });
 
     console.log(formData);
