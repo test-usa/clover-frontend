@@ -46,7 +46,7 @@ const DisputeResponseSuccess = () => {
            </button>
          </Link>
          <Link to="/dashboard" className="flex-1">
-           <button className="w-full bg-primary-500 text-white py-[12px] rounded-md text-[14px] transition cursor-pointer">
+           <button className="w-full bg-primary-500 text-white py-[12px] rounded-md text-[14px] transition ">
              Go to Dashboard
            </button>
          </Link>
