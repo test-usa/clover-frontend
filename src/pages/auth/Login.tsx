@@ -7,15 +7,28 @@ import logo from "../../assets/logo.svg";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 import { loginUserApi } from "@/store/api/authApi";
+import { useSelector } from "react-redux";
+import Cookies from "js-cookie";
+import { verifyToken } from "@/utils/verifyToken";
+
 
 const loginSchema = z.object({
   email: z.string().email("Invalid email format"),
   password: z.string().min(6, "Password must be at least 6 characters"),
 });
 
+type DecodedToken = {
+  userId: string;
+  iat: number;
+  exp: number;
+  role: string;
+};
+
 type LoginFormInputs = z.infer<typeof loginSchema>;
 
 const Login = () => {
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -24,7 +37,8 @@ const Login = () => {
     resolver: zodResolver(loginSchema),
   });
 
-  const navigate = useNavigate();
+  const user = useSelector((state: any) => state.auth.user);
+  console.log("User from Redux:", user);
 
   const onSubmit = async (data: LoginFormInputs) => {
     const userData = {
@@ -36,30 +50,62 @@ const Login = () => {
 
     try {
       const res = await loginUserApi(userData);
-      console.log("Login Response:", res);
+      if (res.data.accessToken) {
+        Cookies.set("accessToken", res.data.accessToken, {
+          expires: 7,
+        });
+      }
 
       if (res.success) {
-        navigate("/dashboard");
+        const decoded = verifyToken();
+
+        if (decoded && typeof decoded !== "boolean") {
+          const userId = (decoded as DecodedToken).userId;
+
+          if (userId) {
+            try {
+              const profileRes = await fetch(
+                `https://clover-backend-lyh6.onrender.com/api/v1/profiles/${userId}`
+              );
+              const profileData = await profileRes.json();
+
+              if (
+                profileData?.phone === null ||
+                profileData?.phone === undefined
+              ) {
+                navigate("/onboard");
+              } else {
+                navigate("/dashboard");
+              }
+            } catch (err) {
+              console.error("Profile fetch failed:", err);
+              alert("Something went wrong fetching profile.");
+            }
+          } else {
+            console.error("User ID not found in token.");
+            alert("Login failed: Invalid token.");
+          }
+        } else {
+          alert("Login failed: Invalid token.");
+        }
       } else {
         alert(res.message || "Login failed. Please try again.");
       }
     } catch (error: any) {
       console.error("Login error:", error);
       alert(
-        error?.response.data.message ||
-          "An unexpected error occurred. Please try again."
+        error?.response?.data?.message ||
+        "An unexpected error occurred. Please try again."
       );
     }
   };
 
   return (
     <div className="flex flex-col md:flex-row gap-[80px] items-center justify-center min-h-screen bg-white px-4">
-      {/* Left Side Image - hidden on mobile */}
       <div className="hidden md:block">
-        <img src={loginImg} alt="Login visual" className="" />
+        <img src={loginImg} alt="Login visual" />
       </div>
 
-      {/* Right Side Form */}
       <div className="w-full max-w-md">
         <div className="flex flex-col justify-center items-center gap-6 my-8">
           <img src={logo} alt="logo" className="w-[60px] h-[56px]" />
@@ -75,7 +121,6 @@ const Login = () => {
 
         <div className="w-full bg-white p-6 rounded-lg">
           <form onSubmit={handleSubmit(onSubmit)} className="mt-4 space-y-4">
-            {/* Email Field */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Email
@@ -93,7 +138,6 @@ const Login = () => {
               )}
             </div>
 
-            {/* Password Field */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Password
@@ -117,8 +161,6 @@ const Login = () => {
               </Link>
             </div>
 
-            {/* Submit Button */}
-
             <button
               type="submit"
               className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 hover:scale-105 transition cursor-pointer"
@@ -126,7 +168,6 @@ const Login = () => {
               Login
             </button>
 
-            {/* OR Divider */}
             <div className="my-4 flex items-center justify-center gap-2 text-gray-500 text-sm">
               <div className="w-full border-t border-gray-300" />
               <span>OR</span>
@@ -134,7 +175,6 @@ const Login = () => {
             </div>
           </form>
 
-          {/* Social Buttons */}
           <div className="space-y-4">
             <button className="w-full bg-white border border-gray-300 text-[#254EDB] p-2 rounded-md hover:scale-105 transition">
               <div className="flex justify-center items-center gap-4">
@@ -155,7 +195,6 @@ const Login = () => {
             </button>
           </div>
 
-          {/* Footer Text */}
           <div className="my-4 text-center text-sm">
             <span>
               Don't have an account?{" "}

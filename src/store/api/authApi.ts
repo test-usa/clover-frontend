@@ -17,6 +17,13 @@ export const loginUserApi = async (userData: {
   return res.data;
 };
 
+// get user profile
+export const getUserProfileApi = async (id: string) => {
+  const res = await axiosInstance.get(`/profiles/${id}`);
+  return res.data;
+}
+
+
 // otp
 interface otp {
   otp: string;

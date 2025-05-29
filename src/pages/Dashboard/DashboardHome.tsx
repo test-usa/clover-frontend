@@ -1,5 +1,7 @@
 import Matches from "@/components/DashboaredHome/Matches";
 import Summary from "@/components/DashboaredHome/Summary";
+import Cookies from "js-cookie";
+import { useSelector } from "react-redux";
 
 type TActivites = {
   title: string;
@@ -22,15 +24,16 @@ const activites: TActivites = [
 ]
 
 const DashboardHome = () => {
+
   return (
     <div className="p-4">
       <div>
         <h1 className="text-5xl font-bold mt-5">Hi Dwiky!</h1>
         <p className="mb-7">Ready to swap skills?</p>
       </div>
-     <div>
-       <Summary />
-     </div>
+      <div>
+        <Summary />
+      </div>
       <Matches />
       <div>
         <h1 className="text-3xl font-bold mt-10 mb-6">Recent Activities</h1>
