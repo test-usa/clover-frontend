@@ -12,6 +12,7 @@ import { LuEye, LuEyeClosed } from "react-icons/lu";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUserApi } from "@/store/api/authApi";
 import { setUser } from "@/store/Slices/AuthSlice/authSlice";
+import { useRedirectIfAuthenticated } from "@/hooks/useRedirectIfAuthenticated";
 
 const signupSchema = z
   .object({
@@ -27,6 +28,7 @@ const signupSchema = z
 type SignupFormInputs = z.infer<typeof signupSchema>;
 
 const Signup = () => {
+  // useRedirectIfAuthenticated()
   const [isShow, setShow] = useState<boolean>(false);
   const [isShowConfirm, setShowConfirm] = useState<boolean>(false);
 
@@ -71,7 +73,7 @@ const Signup = () => {
       console.error("Registration error:", error);
       alert(
         error?.response?.data?.message ||
-          "Registration failed. Please try again."
+        "Registration failed. Please try again."
       );
     }
   };
@@ -170,20 +172,18 @@ const Signup = () => {
                       <>
                         <div className="w-full h-2 bg-gray-200 rounded">
                           <div
-                            className={`h-2 rounded transition-all duration-300 ${
-                              colors[strength.label]
-                            }`}
+                            className={`h-2 rounded transition-all duration-300 ${colors[strength.label]
+                              }`}
                             style={{ width: `${(strength.score / 3) * 100}%` }}
                           ></div>
                         </div>
                         <p
-                          className={`text-sm mt-1 text-${
-                            strength.label === "Weak"
-                              ? "red"
-                              : strength.label === "Medium"
+                          className={`text-sm mt-1 text-${strength.label === "Weak"
+                            ? "red"
+                            : strength.label === "Medium"
                               ? "yellow"
                               : "green"
-                          }-600`}
+                            }-600`}
                         >
                           {strength.label}
                         </p>

@@ -10,6 +10,8 @@ import { loginUserApi } from "@/store/api/authApi";
 import { useSelector } from "react-redux";
 import Cookies from "js-cookie";
 import { verifyToken } from "@/utils/verifyToken";
+import { useRedirectIfAuthenticated } from "@/hooks/useRedirectIfAuthenticated";
+import axios from "axios";
 
 
 const loginSchema = z.object({
@@ -27,6 +29,7 @@ type DecodedToken = {
 type LoginFormInputs = z.infer<typeof loginSchema>;
 
 const Login = () => {
+  // useRedirectIfAuthenticated()
   const navigate = useNavigate();
 
   const {
@@ -37,8 +40,8 @@ const Login = () => {
     resolver: zodResolver(loginSchema),
   });
 
-  const user = useSelector((state: any) => state.auth.user);
-  console.log("User from Redux:", user);
+  const user = useSelector((state: any) => state.auth);
+  console.log("User from Redux:", user)
 
   const onSubmit = async (data: LoginFormInputs) => {
     const userData = {
@@ -61,22 +64,23 @@ const Login = () => {
 
         if (decoded && typeof decoded !== "boolean") {
           const userId = (decoded as DecodedToken).userId;
+          console.log("Decoded User ID:", userId);
 
           if (userId) {
             try {
-              const profileRes = await fetch(
-                `https://clover-backend-lyh6.onrender.com/api/v1/profiles/${userId}`
-              );
-              const profileData = await profileRes.json();
+              const profileRes = await axios.get(`https://clover-backend-lyh6.onrender.com/api/v1/profiles/${userId}`
 
-              if (
-                profileData?.phone === null ||
-                profileData?.phone === undefined
-              ) {
-                navigate("/onboard");
-              } else {
-                navigate("/dashboard");
-              }
+              );
+              console.log("Profile Data:", profileRes.data);
+
+              // if (
+              //   profileData?.phone === null ||
+              //   profileData?.phone === undefined
+              // ) {
+              //   navigate("/on-board");
+              // } else {
+              //   navigate("/dashboard");
+              // }
             } catch (err) {
               console.error("Profile fetch failed:", err);
               alert("Something went wrong fetching profile.");
