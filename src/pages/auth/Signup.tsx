@@ -9,14 +9,15 @@ import logo from "../../assets/logo.svg";
 import { Link, useNavigate } from "react-router-dom";
 import registerImg from "../../assets/loginImage.png";
 import { LuEye, LuEyeClosed } from "react-icons/lu";
+import { useDispatch, useSelector } from "react-redux";
+import { registerUserApi } from "@/store/api/authApi";
+import { setUser } from "@/store/Slices/AuthSlice/authSlice";
 
 const signupSchema = z
   .object({
-    name: z.string().min(2, "Name must be at least 2 characters"),
     email: z.string().email("Invalid email format"),
     password: z.string().min(6, "Password must be at least 6 characters"),
     confirmPassword: z.string().min(6, "Confirm Password is required"),
-    image: z.any().optional(),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: "Passwords do not match",
@@ -26,15 +27,17 @@ const signupSchema = z
 type SignupFormInputs = z.infer<typeof signupSchema>;
 
 const Signup = () => {
-  // const [preview, setPreview] = useState<string | null>(null);
-  // const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isShow, setShow] = useState<boolean>(false);
   const [isShowConfirm, setShowConfirm] = useState<boolean>(false);
 
+  const data = useSelector((state: any) => state.auth);
+  const dispatch = useDispatch();
+
+  console.log(data);
   const {
     register,
     handleSubmit,
-    // setValue,
+
     watch,
     formState: { errors },
   } = useForm<SignupFormInputs>({
@@ -44,25 +47,35 @@ const Signup = () => {
   const navigate = useNavigate();
   const passwordValue: string = watch("password");
 
-  const onSubmit = (data: SignupFormInputs) => {
-    const formData = new FormData();
-    formData.append("name", data.name);
-    formData.append("email", data.email);
-    formData.append("password", data.password);
-    // if (selectedFile) formData.append("image", selectedFile);
+  const onSubmit = async (data: SignupFormInputs) => {
+    const email = data.email;
+    const password = data.password;
+    const userInfo = { email, password };
 
-    console.log("Signup Data:", Object.fromEntries(formData));
-    navigate("/login");
+    try {
+      const res = await registerUserApi(userInfo);
+
+      const userData = {
+        _id: res?.data.user._id,
+        email: res?.data.user.email,
+        role: res?.data.user.role,
+        status: res?.data.user.status,
+      };
+      console.log(res.success);
+      dispatch(setUser(userData));
+
+      if (res?.success) {
+        navigate("/otp");
+      }
+    } catch (error: any) {
+      console.error("Registration error:", error);
+      alert(
+        error?.response?.data?.message ||
+          "Registration failed. Please try again."
+      );
+    }
   };
 
-  // const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   const file = event.target.files?.[0];
-  //   if (file) {
-  //     setPreview(URL.createObjectURL(file));
-  //     setSelectedFile(file);
-  //     setValue("image", file, { shouldValidate: true });
-  //   }
-  // };
   type PasswordStrength = {
     label: "Weak" | "Medium" | "Strong";
     score: number;
@@ -183,7 +196,7 @@ const Signup = () => {
 
             <div className="relative">
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Password
+                Confirm Password
               </label>
               <input
                 type={isShowConfirm ? "text" : "password"}
@@ -215,7 +228,7 @@ const Signup = () => {
               type="submit"
               className="w-full cursor-pointer bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 hover:scale-105 transition"
             >
-              <Link to={"/otp"}>Register</Link>
+              Register
             </button>
 
             {/* OR Divider */}
@@ -275,41 +288,3 @@ const Signup = () => {
 };
 
 export default Signup;
-{
-  /* <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">
-              Profile Picture
-            </label>
-           
-            <div
-              className="relative w-full h-36 border-2 border-dashed border-gray-400 rounded-lg flex items-center justify-center cursor-pointer hover:border-blue-500 transition"
-              onClick={() => document.getElementById("fileInput")?.click()}
-            >
-              {preview ? (
-                <img
-                  src={preview}
-                  alt="Preview"
-                  className="absolute inset-0 w-full h-full object-cover rounded-lg"
-                />
-              ) : (
-                <div className="flex flex-col items-center text-gray-500">
-                  <CiSquarePlus className="h-12 w-12" />
-                  <p className="text-sm">Click to upload</p>
-                </div>
-              )}
-            </div>
-            <input
-              type="file"
-              accept="image/*"
-              id="fileInput"
-              className="hidden"
-              onChange={handleImageChange}
-            />
-            {errors.image?.message &&
-              typeof errors.image.message === "string" && (
-                <p className="text-red-500 text-sm mt-1">
-                  {errors.image.message}
-                </p>
-              )}
-          </div> */
-}

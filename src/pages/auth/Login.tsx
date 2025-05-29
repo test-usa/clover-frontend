@@ -2,10 +2,12 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Link, useNavigate } from "react-router-dom";
-import loginImg from '../../assets/loginImage.png'
-import logo from '../../assets/logo.svg'
+import loginImg from "../../assets/loginImage.png";
+import logo from "../../assets/logo.svg";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
+import { loginUserApi } from "@/store/api/authApi";
+
 const loginSchema = z.object({
   email: z.string().email("Invalid email format"),
   password: z.string().min(6, "Password must be at least 6 characters"),
@@ -24,9 +26,30 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  const onSubmit = (data: LoginFormInputs) => {
+  const onSubmit = async (data: LoginFormInputs) => {
+    const userData = {
+      email: data.email,
+      password: data.password,
+    };
+
     console.log("Login Data:", data);
-    navigate("/dashboard");
+
+    try {
+      const res = await loginUserApi(userData);
+      console.log("Login Response:", res);
+
+      if (res.success) {
+        navigate("/dashboard");
+      } else {
+        alert(res.message || "Login failed. Please try again.");
+      }
+    } catch (error: any) {
+      console.error("Login error:", error);
+      alert(
+        error?.response.data.message ||
+          "An unexpected error occurred. Please try again."
+      );
+    }
   };
 
   return (
@@ -43,7 +66,8 @@ const Login = () => {
           <div className="flex flex-col items-center justify-center gap-2 text-center">
             <h1 className="font-bold text-2xl">Welcome Back to SwapSpot!</h1>
             <p className="text-sm">
-              Connect with a community ready to exchange <br className="hidden sm:block" />
+              Connect with a community ready to exchange{" "}
+              <br className="hidden sm:block" />
               skills.
             </p>
           </div>
@@ -53,7 +77,9 @@ const Login = () => {
           <form onSubmit={handleSubmit(onSubmit)} className="mt-4 space-y-4">
             {/* Email Field */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Email
+              </label>
               <input
                 type="email"
                 placeholder="email@example.com"
@@ -61,13 +87,17 @@ const Login = () => {
                 className="w-full p-2 border border-[#D2D6DB] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               {errors.email && (
-                <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.email.message}
+                </p>
               )}
             </div>
 
             {/* Password Field */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Password
+              </label>
               <input
                 type="password"
                 placeholder="Enter your password"
@@ -75,7 +105,9 @@ const Login = () => {
                 className="w-full p-2 border border-[#D2D6DB] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               {errors.password && (
-                <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.password.message}
+                </p>
               )}
             </div>
 
@@ -86,14 +118,13 @@ const Login = () => {
             </div>
 
             {/* Submit Button */}
-           <Link to='/dashboard'>
+
             <button
               type="submit"
               className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 hover:scale-105 transition cursor-pointer"
             >
               Login
             </button>
-           </Link>
 
             {/* OR Divider */}
             <div className="my-4 flex items-center justify-center gap-2 text-gray-500 text-sm">
@@ -108,29 +139,35 @@ const Login = () => {
             <button className="w-full bg-white border border-gray-300 text-[#254EDB] p-2 rounded-md hover:scale-105 transition">
               <div className="flex justify-center items-center gap-4">
                 <FcGoogle />
-                <p className="text-sm font-bold cursor-pointer">Continue with Google</p>
+                <p className="text-sm font-bold cursor-pointer">
+                  Continue with Google
+                </p>
               </div>
             </button>
 
             <button className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 hover:scale-105 transition">
               <div className="flex justify-center items-center gap-4">
                 <FaFacebook />
-                <p className="text-sm font-bold cursor-pointer">Continue with Facebook</p>
+                <p className="text-sm font-bold cursor-pointer">
+                  Continue with Facebook
+                </p>
               </div>
             </button>
           </div>
 
           {/* Footer Text */}
           <div className="my-4 text-center text-sm">
-            <span>Don't have an account? <Link to="/signup" className="text-blue-700 hover:underline">Register Now</Link></span>
+            <span>
+              Don't have an account?{" "}
+              <Link to="/signup" className="text-blue-700 hover:underline">
+                Register Now
+              </Link>
+            </span>
           </div>
-
         </div>
       </div>
     </div>
   );
-
 };
 
 export default Login;
-
